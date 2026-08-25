@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valero Agency — Informe Operativo · Closer Search</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#060606;
+    --void-soft:#0F0F0F;
+    --void-card:#131313;
+    --line:#242220;
+    --gold:#C9A84C;
+    --gold-soft:#C9A96E;
+    --gold-dim:#8E763A;
+    --ink:#EDE7D8;
+    --ink-dim:#B4AC98;
+    --ink-faint:#807A6C;
+    --radius:6px;
+    --maxw:880px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--void);
+    color:var(--ink);
+    font-family:'DM Sans',sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Cormorant Garamond',serif;
+    color:var(--ink);
+    margin:0 0 .35em 0;
+    line-height:1.15;
+    font-weight:600;
+  }
+  .cinzel{font-family:'Cinzel',serif;}
+  a{color:var(--gold);}
+
+  .shell{display:flex; min-height:100vh;}
+  nav.sidebar{
+    width:256px; flex:0 0 256px;
+    background:var(--void-soft);
+    border-right:1px solid var(--line);
+    color:#C9C3B4;
+    position:sticky; top:0; height:100vh;
+    overflow-y:auto;
+    padding:32px 22px 40px;
+  }
+  .brandmark{display:flex; align-items:center; gap:12px; margin-bottom:6px;}
+  .brandmark svg{width:36px; height:36px; flex:0 0 auto;}
+  .brand-name{font-family:'Cinzel',serif; font-weight:600; font-size:.98rem; color:#fff; letter-spacing:.06em;}
+  .brand-name .search{color:var(--gold);}
+  .brand-tagline{
+    font-size:.65rem; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--gold-dim); margin:2px 0 6px 48px;
+  }
+  .brand-client{
+    font-size:.72rem; margin:0 0 24px 48px; color:var(--ink-faint);
+  }
+  .brand-client strong{color:var(--gold-soft);}
+  nav.sidebar a.sourced{color:var(--ink); font-weight:700;}
+  nav.sidebar a.sourced:hover{color:var(--gold-soft);}
+  nav.sidebar .nav-group-label{
+    font-size:.66rem; text-transform:uppercase; letter-spacing:.12em;
+    color:var(--ink-faint); margin:22px 0 8px;
+  }
+  nav.sidebar a{
+    display:block; color:#B4AC98; text-decoration:none;
+    font-size:.87rem; padding:6px 0 6px 12px; border-left:2px solid transparent;
+    transition:.15s;
+  }
+  nav.sidebar a:hover{color:var(--gold-soft); border-left-color:var(--gold);}
+  nav.sidebar .quicklinks{margin-top:28px; padding-top:18px; border-top:1px solid var(--line);}
+  nav.sidebar .quicklinks a{
+    background:rgba(201,168,76,.08); border-radius:4px; margin-bottom:6px;
+    padding:9px 10px 9px 12px; border-left:2px solid var(--gold); font-size:.81rem; color:var(--gold-soft);
+  }
+
+  main{flex:1; min-width:0;}
+
+  .topbar{
+    background:var(--void-card); color:var(--ink-dim);
+    padding:14px 44px; display:flex; gap:26px; flex-wrap:wrap;
+    align-items:center; font-size:.82rem;
+    border-bottom:1px solid var(--gold-dim);
+  }
+  .topbar strong{color:var(--gold); font-weight:600;}
+  .topbar .divider{width:1px; height:14px; background:var(--line);}
+
+  .hero{
+    padding:64px 44px 46px;
+    background:
+      radial-gradient(ellipse at 88% -10%, rgba(201,168,76,.10), transparent 55%),
+      var(--void);
+    border-bottom:1px solid var(--line);
+  }
+  .hero .eyebrow{
+    font-size:.72rem; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--gold); font-weight:600; margin-bottom:16px;
+    display:flex; align-items:center; gap:10px;
+    font-family:'Cinzel',serif;
+  }
+  .hero h1{font-size:2.7rem; max-width:760px; font-weight:600; color:#fff;}
+  .hero .lede{max-width:660px; font-size:1.06rem; color:var(--ink-dim); margin-top:16px;}
+  .hero .promise{
+    margin-top:26px; padding:20px 24px; background:var(--void-card);
+    border-left:2px solid var(--gold); border-radius:0 6px 6px 0;
+    max-width:660px; font-family:'Cormorant Garamond',serif; font-size:1.25rem;
+    font-weight:600; font-style:italic; color:var(--gold-soft);
+  }
+
+  section{padding:52px 44px; max-width:var(--maxw); margin:0 auto; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .section-tag{
+    font-size:.7rem; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--gold-dim); font-weight:600; margin-bottom:8px; font-family:'Cinzel',serif;
+  }
+  section h2{font-size:1.75rem; margin-bottom:.3em; color:#fff;}
+  section h3{font-size:1.18rem; margin-top:28px; color:var(--gold-soft); font-weight:600;}
+  section p{color:var(--ink-dim); max-width:70ch;}
+  .subnote{color:var(--ink-faint); font-size:.88rem;}
+
+  .seal-divider{
+    display:flex; align-items:center; gap:14px; margin:0 44px;
+    max-width:var(--maxw); margin-left:auto; margin-right:auto;
+  }
+  .seal-divider .line{flex:1; height:1px; background:linear-gradient(90deg,var(--line),transparent);}
+  .seal-divider .line.right{background:linear-gradient(90deg,transparent,var(--line));}
+  .seal-divider svg{width:22px; height:22px;}
+
+  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:18px;}
+  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px;}
+  .card{
+    background:var(--void-card); border:1px solid var(--line);
+    border-radius:var(--radius); padding:18px 20px;
+  }
+  .card h4{font-size:1.02rem; margin-bottom:6px; color:var(--ink);}
+  .card p{margin:0; font-size:.9rem; color:var(--ink-dim);}
+  .pill{
+    display:inline-block; font-size:.68rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+    padding:3px 10px; border-radius:2px; background:rgba(201,168,76,.1); color:var(--gold);
+    margin-bottom:8px; border:1px solid var(--gold-dim); font-family:'Cinzel',serif;
+  }
+
+  table{width:100%; border-collapse:collapse; margin-top:18px; font-size:.9rem; background:var(--void-card); border-radius:var(--radius); overflow:hidden;}
+  thead th{
+    background:#000; color:var(--gold); text-align:left; padding:11px 14px;
+    font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; font-weight:600; font-family:'Cinzel',serif;
+    border-bottom:1px solid var(--gold-dim);
+  }
+  tbody td{padding:11px 14px; border-bottom:1px solid var(--line); vertical-align:top; color:var(--ink-dim);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:nth-child(even){background:rgba(255,255,255,.015);}
+  td.label{font-weight:600; color:var(--ink); white-space:nowrap;}
+  td.pending{color:#D08370; font-style:italic;}
+
+  .phase{display:grid; grid-template-columns:44px 1fr; gap:18px; margin-top:22px;}
+  .phase .num{
+    width:44px; height:44px; border-radius:50%; background:#000; border:1px solid var(--gold-dim);
+    color:var(--gold); display:flex; align-items:center; justify-content:center;
+    font-family:'Cinzel',serif; font-weight:600; font-size:.98rem;
+  }
+  .phase .num.active{background:var(--gold); color:#060606; border-color:var(--gold);}
+  .phase-body{padding-bottom:8px; border-left:1px solid var(--line); padding-left:18px; margin-left:22px; margin-top:-40px; padding-top:44px;}
+  .phase-body h4{margin-bottom:4px; font-size:1.05rem; color:var(--ink);}
+  .phase-body .result{
+    margin-top:8px; font-size:.85rem; background:rgba(201,168,76,.08); color:var(--gold-soft);
+    padding:8px 12px; border-radius:4px; display:inline-block; border:1px solid var(--gold-dim);
+  }
+
+  details.acc{
+    background:var(--void-card); border:1px solid var(--line); border-radius:var(--radius);
+    margin-top:10px; overflow:hidden;
+  }
+  details.acc summary{
+    cursor:pointer; list-style:none; padding:14px 18px; font-weight:600; color:var(--ink);
+    display:flex; justify-content:space-between; align-items:center; font-size:.95rem;
+  }
+  details.acc summary::-webkit-details-marker{display:none;}
+  details.acc summary::after{content:'+'; font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:var(--gold); flex:0 0 auto;}
+  details.acc[open] summary::after{content:'–';}
+  details.acc[open] summary{border-bottom:1px solid var(--line);}
+  details.acc .acc-body{padding:14px 18px 18px; font-size:.9rem; color:var(--ink-dim);}
+  details.acc .acc-body p{margin:.5em 0;}
+  details.acc .acc-body .say{
+    background:rgba(201,168,76,.06); border-left:2px solid var(--gold); padding:10px 14px;
+    border-radius:0 4px 4px 0; margin:8px 0; font-style:italic; color:var(--ink);
+  }
+
+  .paybox{background:#000; border:1px solid var(--gold-dim); border-radius:8px; padding:28px 30px; margin-top:22px;}
+  .paybox h3{color:var(--gold); margin-top:0; font-family:'Cinzel',serif; font-size:1.1rem; letter-spacing:.03em;}
+  .pay-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:16px;}
+  .pay-card{background:var(--void-card); border:1px solid var(--line); border-radius:6px; padding:16px;}
+  .pay-card.pending{border-color:#4A2A24; background:rgba(150,40,30,.06);}
+  .pay-card .plan{font-weight:600; font-size:.9rem; color:var(--ink); margin-bottom:2px;}
+  .pay-card .amount{font-family:'Cormorant Garamond',serif; font-weight:700; color:var(--gold); font-size:1.15rem; margin-bottom:2px;}
+  .pay-card .then{font-size:.76rem; color:var(--ink-faint); margin-bottom:10px;}
+  .pay-card a.link{
+    display:block; word-break:break-all; font-size:.72rem; color:var(--ink-dim);
+    background:#000; padding:8px 10px; border-radius:4px; text-decoration:none; border:1px solid var(--line);
+  }
+  .pay-card a.link:hover{color:var(--gold-soft); border-color:var(--gold-dim);}
+
+  .dodont{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:18px;}
+  .dodont .box{border-radius:var(--radius); padding:16px 18px; border:1px solid var(--line);}
+  .dodont .do{background:rgba(201,168,76,.05);}
+  .dodont .dont{background:rgba(150,40,30,.08); border-color:#4A2A24;}
+  .dodont h4{margin-bottom:8px; font-size:.85rem; text-transform:uppercase; letter-spacing:.06em; font-family:'Cinzel',serif;}
+  .dodont .do h4{color:var(--gold-soft);}
+  .dodont .dont h4{color:#D08370;}
+  .dodont ul{margin:0; padding-left:18px; font-size:.87rem; color:var(--ink-dim);}
+  .dodont li{margin-bottom:5px;}
+
+  .callout{
+    background:rgba(201,168,76,.07); border:1px solid var(--gold-dim); border-radius:var(--radius);
+    padding:16px 20px; margin-top:18px; font-size:.9rem; color:var(--ink-dim);
+  }
+  .callout strong{color:var(--gold);}
+  .callout.warn{background:rgba(150,40,30,.08); border-color:#4A2A24;}
+  .callout.warn strong{color:#D08370;}
+
+  footer{
+    padding:34px 44px 60px; max-width:var(--maxw); margin:0 auto;
+    color:var(--ink-faint); font-size:.8rem; display:flex; align-items:center; gap:10px;
+  }
+  footer svg{width:18px; height:18px; opacity:.6;}
+
+  .checklist{list-style:none; padding:0; margin-top:16px;}
+  .checklist li{
+    display:flex; gap:10px; align-items:flex-start; padding:7px 0; font-size:.9rem; color:var(--ink-dim);
+    border-bottom:1px dashed var(--line);
+  }
+  .checklist li:last-child{border-bottom:none;}
+  .checklist .box{flex:0 0 15px; width:15px; height:15px; border:1px solid var(--gold-dim); border-radius:2px; margin-top:2px;}
+
+  .obs-list{list-style:none; padding:0; margin-top:14px;}
+  .obs-list li{
+    padding:14px 16px; background:rgba(150,40,30,.06); border:1px solid #4A2A24; border-radius:6px;
+    margin-bottom:10px; font-size:.88rem; color:var(--ink-dim);
+  }
+  .obs-list li strong{color:#D08370; display:block; margin-bottom:4px; font-size:.78rem; text-transform:uppercase; letter-spacing:.05em;}
+
+  @media (max-width:900px){
+    .shell{flex-direction:column;}
+    nav.sidebar{position:relative; width:100%; height:auto; flex:none;}
+    .grid-2, .grid-3, .pay-grid, .dodont{grid-template-columns:1fr;}
+    .hero, section, .topbar, footer{padding-left:22px; padding-right:22px;}
+    .seal-divider{margin-left:22px; margin-right:22px;}
+    .hero h1{font-size:2.1rem;}
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <nav class="sidebar">
+    <div class="brandmark">
+      <svg viewBox="0 0 100 100" fill="none">
+        <polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#C9A84C" stroke-width="3" fill="#060606"/>
+        <polygon points="50,16 79,32 79,68 50,84 21,68 21,32" stroke="#8E763A" stroke-width="1.2" fill="none"/>
+        <path d="M33 50 L45 62 L69 36" stroke="#C9A84C" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div>
+        <div class="brand-name">CLOSER<span class="search"> SEARCH</span></div>
+      </div>
+    </div>
+    <div class="brand-tagline">Selección de talento de cierre</div>
+    <div class="brand-client">Cliente: <strong>Valero Agency</strong></div>
+    <div class="nav-group-label">El producto</div>
+    <a class="sourced" href="#resumen">Resumen ejecutivo</a>
+    <a class="sourced" href="#avatar">Avatar del cliente</a>
+    <a class="sourced" href="#dolores">Dolores, deseos y miedos</a>
+    <a href="#oferta">Oferta y los 2 pilares</a>
+    <a class="sourced" href="#fases">Fases del acompañamiento</a>
+    <a class="sourced" href="#incluye">Qué incluye + bonus</a>
+
+    <div class="nav-group-label">Venta</div>
+    <a class="sourced" href="#embudo">Embudo de prospección en frío</a>
+    <a class="sourced" href="#dimensionamiento">Dimensionamiento del equipo</a>
+    <a class="sourced" href="#script">Estructura de la llamada en frío</a>
+    <a class="sourced" href="#objeciones">Manejo de objeciones</a>
+    <a class="sourced" href="#limites">Límites y qué no prometer</a>
+
+    <div class="nav-group-label">Operativa</div>
+    <a href="#inversion">Inversión y enlaces de pago</a>
+    <a class="sourced" href="#proceso-closer">Procedimiento del Closer</a>
+    <a class="sourced" href="#observaciones">Observaciones</a>
+
+    <div class="quicklinks">
+      <a href="#inversion">Enlaces de pago Stripe</a>
+      <a class="sourced" href="#script">Script de llamada en frío</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="topbar">
+      <span><strong>Cliente</strong> Valero Agency</span>
+      <span class="divider"></span>
+      <span>Agentes de IA + Marketing de Contenido</span>
+      <span class="divider"></span>
+      <span>Prospección en frío · Base +7.000 contactos</span>
+    </div>
+
+    <div class="hero">
+      <div class="eyebrow">
+        <svg viewBox="0 0 100 100" fill="none" width="16" height="16"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#C9A84C" stroke-width="6" fill="none"/></svg>
+        Informe operativo · Closer Search
+      </div>
+      <h1>Valero Agency</h1>
+      <p class="lede">Agentes de IA para reservas y marketing de contenido para restauración multi-local. Guía operativa para el equipo de closers — venta B2B por prospección en frío sobre una base de más de 7.000 restaurantes en España. Sin lanzamientos, sin anuncios: el canal es la llamada.</p>
+      <div class="promise">"No vendemos una demo. Vendemos un diagnóstico gratuito que le enseña al restaurante cuánto dinero está perdiendo cada semana por no responder a tiempo."</div>
+    </div>
+
+    <section id="resumen">
+      <div class="section-tag">00 · Resumen</div>
+      <h2>Resumen ejecutivo</h2>
+      <p>Cuatro ideas que el equipo debe tener claras antes de la primera llamada.</p>
+
+      <div class="phase">
+        <div class="num active">1</div>
+        <div class="phase-body">
+          <h4>Dos productos, un mismo dolor</h4>
+          <p>Agentes de IA (automatización de reservas) y Marketing de Contenido resuelven la misma raíz: restaurantes que llenan mesas pero pierden el control por falta de sistema.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">2</div>
+        <div class="phase-body">
+          <h4>El canal es la llamada, no el anuncio</h4>
+          <p>Sin lanzamientos ni Meta Ads: la vía de entrada es la prospección telefónica en frío sobre una base de +7.000 restaurantes segmentada por tier.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">3</div>
+        <div class="phase-body">
+          <h4>La puerta de entrada es el diagnóstico, no el precio</h4>
+          <p>El closer no vende un plan en la primera llamada: vende una cita de diagnóstico gratuito con cifras reales del propio restaurante.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">4</div>
+        <div class="phase-body">
+          <h4>El ICP ya está validado</h4>
+          <p>Ticket medio &gt;35€, 2+ locales, Tier 3-4 como prioridad inmediata (33 cuentas ya identificadas en el estudio de mercado), con expansión hacia Tier 2 según madure la cartera.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="avatar">
+      <div class="section-tag">01 · Cliente ideal</div>
+      <h2>Avatar del cliente</h2>
+      <p>Antes de descolgar, ten presente contra quién estás hablando: alguien escéptico ante "otra agencia más", con muy poco tiempo, y que decide rápido solo cuando ve una cifra concreta.</p>
+      <table>
+        <thead><tr><th>Variable</th><th>Detalle</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Rol</td><td>Propietario, socio-gestor o director de operaciones de un grupo de restauración</td></tr>
+          <tr><td class="label">Edad</td><td>35-55 años</td></tr>
+          <tr><td class="label">Facturación del negocio</td><td>Entre 1M y 15M€/año (Tier 3-4 como prioridad; Tier 2 en expansión)</td></tr>
+          <tr><td class="label">Locales</td><td>2 o más en explotación</td></tr>
+          <tr><td class="label">Geografía</td><td>España, con foco en zonas de concentración hostelera (Madrid, Barcelona, Valencia, Costa del Sol)</td></tr>
+          <tr><td class="label">Estilo de decisión</td><td>Escéptico ante "otra agencia más"; decide rápido si ve una cifra concreta, decide lento si solo oye promesas</td></tr>
+          <tr><td class="label">Disponibilidad</td><td>Muy baja durante el servicio (13-16h y 20-23h); la única ventana real de contacto es fuera de esas franjas</td></tr>
+          <tr><td class="label">Motivación principal</td><td>Recuperar el control operativo y la rentabilidad sin tener que estar físicamente en cada local</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="dolores">
+      <div class="section-tag">02 · Psicografía</div>
+      <h2>Dolores, deseos, sueño oculto y miedo</h2>
+      <p>Úsalos para reconocer lo que el restaurador te está diciendo con otras palabras, tanto en la llamada en frío como en el diagnóstico.</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="pill">Frustraciones frecuentes</div>
+          <p>Reservas perdidas por no contestar a tiempo · WhatsApp acumulado sin responder · sensación de vivir pegado al teléfono · desconfianza acumulada tras haber contratado otras agencias que prometieron mucho y no midieron nada.</p>
+        </div>
+        <div class="card">
+          <div class="pill">Deseos profundos</div>
+          <p>Dejar de perder mesas por no llegar a todo · tener cifras reales de lo que genera cada euro invertido en marketing · poder abrir un nuevo local sin que se le vaya de las manos.</p>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="pill">Sueño oculto</div>
+          <p>Llegar a fin de mes y ver que el negocio creció sin tener que estar físicamente en la sala apagando fuegos. Delegar con confianza porque el sistema —no la memoria de nadie— sostiene el negocio.</p>
+        </div>
+        <div class="card">
+          <div class="pill">Miedo principal</div>
+          <p>Que crecer signifique perder el control: abrir un segundo o tercer local y descubrir que cuantas más mesas llena, menos rentable es, porque nadie ve el conjunto.</p>
+        </div>
+      </div>
+      <div class="callout"><strong>Idea clave para la llamada:</strong> no está fallando el restaurante — están fallando las herramientas sueltas que ha ido acumulando (WhatsApp, Excel, memoria del encargado) para gestionar algo que ya se le ha quedado grande.</div>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="oferta">
+      <div class="section-tag">03 · Producto</div>
+      <h2>La oferta y los 2 pilares</h2>
+      <p>Valero Agency no vende "marketing con IA" en genérico. Vende dos soluciones concretas que pueden contratarse por separado o juntas.</p>
+      <table>
+        <thead><tr><th>Pilar</th><th>Qué es</th><th>Qué resuelve</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Agentes de IA para Reservas</td><td>Voz, chat y WhatsApp que atienden, confirman y llenan mesas 24/7</td><td>Llamadas perdidas en turno fuerte, WhatsApp sin responder, reservas fuera de horario, tiempo del equipo en preguntas repetitivas</td></tr>
+          <tr><td class="label">Marketing y Contenido</td><td>Estrategia y gestión de redes pensada para vender mesas, no likes</td><td>Contenido sin dirección, métricas de vanidad, dependencia del boca a boca, falta de voz de marca propia</td></tr>
+        </tbody>
+      </table>
+      <h3>Por qué es diferente</h3>
+      <p>Casi ninguna agencia de marketing gastronómico en España ofrece hoy un agente de IA conectado a la gestión real de reservas — la mayoría se queda en redes y contenido. Valero es de los pocos que integra ambas capas, y eso es lo que hay que transmitir en la llamada: no "hacemos marketing con IA", sino "conectamos su teléfono y su WhatsApp a las reservas que ya está perdiendo".</p>
+    </section>
+
+    <section id="fases">
+      <div class="section-tag">04 · Programa</div>
+      <h2>Fases del acompañamiento</h2>
+      <p>Explica esta línea temporal en el diagnóstico, una vez el restaurador ya ha validado que necesita lo que ofreces.</p>
+
+      <div class="phase">
+        <div class="num active">1</div>
+        <div class="phase-body">
+          <h4>Diagnóstico gratuito — Semana 1</h4>
+          <p>Analizamos con datos reales del propio restaurante cómo está perdiendo reservas o visibilidad hoy: llamadas, mensajes o publicaciones sin dirección.</p>
+          <span class="result">Resultado esperado: el propietario ve por primera vez una cifra concreta de lo que le está costando no actuar</span>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">2</div>
+        <div class="phase-body">
+          <h4>Diseño e implementación — Semanas 2-3</h4>
+          <p>Configuramos el agente de IA o la estrategia de contenido a medida e integramos los canales: WhatsApp, teléfono, Instagram y sistema de reservas (CoverManager u otro).</p>
+          <span class="result">Resultado esperado: el sistema queda operativo y conectado a la operación real del local</span>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">3</div>
+        <div class="phase-body">
+          <h4>Ajuste con datos reales — Mes 2</h4>
+          <p>Afinamos respuestas, tono y calendario de contenidos con conversaciones y resultados reales de las primeras semanas.</p>
+          <span class="result">Resultado esperado: menos fricción, primeras reservas y publicaciones con impacto medible</span>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="num active">4</div>
+        <div class="phase-body">
+          <h4>Acompañamiento y escalado — Mes 3 en adelante</h4>
+          <p>Mantenimiento mensual, informe de resultados y, si el cliente tiene más de un local, extensión del sistema a los locales adicionales.</p>
+          <span class="result">Resultado esperado: el propietario deja de gestionar esto a mano en ningún local</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="incluye">
+      <div class="section-tag">05 · Entrega</div>
+      <h2>Qué incluye + bonus</h2>
+      <table>
+        <thead><tr><th>Elemento</th><th>Producto</th><th>Descripción</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Diagnóstico gratuito</td><td>Ambos</td><td>Analiza llamadas, mensajes o redes perdidas con datos del propio restaurante</td></tr>
+          <tr><td class="label">Agente de voz para reservas</td><td>Agentes IA</td><td>Contesta el teléfono, toma reservas, resuelve dudas y deriva a sala</td></tr>
+          <tr><td class="label">Agente de chat y WhatsApp</td><td>Agentes IA</td><td>Responde consultas de mesa, carta y disponibilidad en segundos</td></tr>
+          <tr><td class="label">Panel de seguimiento mensual</td><td>Agentes IA (Avanzado/Premium)</td><td>Conversaciones atendidas, reservas generadas, tiempo recuperado por el equipo</td></tr>
+          <tr><td class="label">Estrategia y calendario de contenidos</td><td>Marketing</td><td>Planificación mensual con propósito comercial, no publicaciones sueltas</td></tr>
+          <tr><td class="label">Producción fotográfica y audiovisual</td><td>Marketing (Intermedio/Premium)</td><td>Contenido real del local, no bancos de imágenes</td></tr>
+          <tr><td class="label">Informe mensual de resultados</td><td>Marketing</td><td>Medición mes a mes de lo que realmente genera reservas</td></tr>
+        </tbody>
+      </table>
+      <h3>Bonus para el cierre en frío</h3>
+      <div class="grid-2">
+        <div class="card"><div class="pill">Ya validado</div><h4>Diagnóstico gratuito con cifra real</h4><p>El propio material de Valero ya lo usa como gancho de entrada: no es una demo genérica, es una cifra calculada con los datos del restaurante.</p></div>
+        <div class="card"><div class="pill">Propuesta — a validar</div><h4>Primer mes de mantenimiento al 50%</h4><p>Sugerencia para facilitar el cierre en la misma semana del diagnóstico. No está confirmado por Valero Agency — ver Observaciones antes de comunicarlo a ningún prospecto.</p></div>
+      </div>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="embudo">
+      <div class="section-tag">06 · Funnel</div>
+      <h2>Embudo de prospección en frío</h2>
+      <p>No hay anuncio ni web de entrada: el closer abre la conversación desde cero, sobre una base propia de más de 7.000 restaurantes.</p>
+      <div class="phase">
+        <div class="num">1</div>
+        <div class="phase-body"><h4>Segmentación de la base (+7.000 contactos)</h4><p>Se cruza el listado con los criterios de ICP (ticket medio &gt;35€, 2+ locales) para priorizar Tier 3-4 primero, Tier 2 en segunda ola.</p></div>
+      </div>
+      <div class="phase">
+        <div class="num">2</div>
+        <div class="phase-body"><h4>Llamada en frío</h4><p>Primer contacto telefónico directo, sin formulario ni anuncio previo. El objetivo único de la llamada no es vender un plan: es conseguir la cita de diagnóstico gratuito.</p></div>
+      </div>
+      <div class="phase">
+        <div class="num">3</div>
+        <div class="phase-body"><h4>WhatsApp de refuerzo</h4><p>Tras la llamada (conteste o no), se envía un WhatsApp breve confirmando el motivo del contacto y dejando la puerta abierta.</p></div>
+      </div>
+      <div class="phase">
+        <div class="num active">4</div>
+        <div class="phase-body"><h4>Cita de diagnóstico</h4><p>Aquí entra el cierre: se presenta la cifra real de reservas o visibilidad perdida y se transiciona a la propuesta comercial.</p></div>
+      </div>
+      <div class="callout"><strong>Regla de oro:</strong> en la llamada en frío nunca se da precio. El precio se presenta en la cita de diagnóstico, después de mostrar la cifra concreta de lo que el restaurante está perdiendo.</div>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="dimensionamiento">
+      <div class="section-tag">06b · Capacidad operativa</div>
+      <h2>Dimensionamiento del equipo</h2>
+      <p>Cuántos setter-closer hacen falta para cubrir los 7.000 contactos, y en qué plazo, según el tamaño de equipo que se decida incorporar.</p>
+
+      <div class="grid-3">
+        <div class="card"><div class="pill">Supuesto</div><h4>50 llamadas efectivas/día</h4><p>Por closer, jornada completa: marcaciones + gestión del sistema de seguimiento + reintentos. Estándar de referencia en cold calling B2B — a confirmar o corregir con datos reales del equipo.</p></div>
+        <div class="card"><div class="pill">Base</div><h4>7.000 contactos</h4><p>Primera vuelta de la base completa, sin contar reintentos.</p></div>
+        <div class="card"><div class="pill">Aviso</div><h4>Hasta +9.000-10.000 llamadas reales</h4><p>Con la regla de hasta 3 reintentos por contacto sin respuesta (ver Procedimiento del Closer), el volumen real de marcaciones sube si hay una tasa alta de "sin respuesta" en el primer intento.</p></div>
+      </div>
+
+      <table>
+        <thead><tr><th>Nº de closers</th><th>Días laborables (1ª vuelta)</th><th>Semanas aprox.</th></tr></thead>
+        <tbody>
+          <tr><td class="label">3</td><td>~47 días</td><td>~9-10 semanas</td></tr>
+          <tr><td class="label">5</td><td>~28 días</td><td>~6 semanas</td></tr>
+          <tr><td class="label">8</td><td>~17-18 días</td><td>~3,5 semanas</td></tr>
+          <tr><td class="label">10</td><td>~14 días</td><td>~3 semanas</td></tr>
+        </tbody>
+      </table>
+      <p class="subnote">Cálculo: días laborables = 7.000 ÷ (nº closers × 50 llamadas/día). Semanas = días laborables ÷ 5 (jornada de lunes a viernes).</p>
+      <div class="callout warn"><strong>Pendiente de confirmar:</strong> este cálculo usa un supuesto de 50 llamadas/día y no incluye los reintentos. Si Valero Agency tiene un plazo objetivo para la primera vuelta (ej. "6 semanas") o un ritmo de llamadas distinto (ej. media jornada por closer), hay que ajustar la tabla antes de decidir cuántos comerciales incorporar.</div>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="script">
+      <div class="section-tag">07 · Llamada en frío</div>
+      <h2>Estructura de la llamada en frío (5 bloques)</h2>
+      <p>El objetivo de esta llamada nunca es cerrar una venta: es conseguir 20 minutos de diagnóstico.</p>
+      <div class="callout warn"><strong>Regla de identidad:</strong> el comercial se presenta siempre como Valero Agency. Closer Search selecciona, forma y coordina al equipo, pero nunca se menciona en la llamada — de cara al restaurante, el comercial ES Valero Agency.</div>
+
+      <details class="acc" open>
+        <summary>1 · Apertura sin sonar a vendedor</summary>
+        <div class="acc-body">
+          <p class="say">"Hola, soy [nombre], le llamo de Valero Agency. Le contacto por [nombre del restaurante] — ¿tiene 30 segundos?"</p>
+          <p>Objetivo: sonar directo y humano, no leído. Si dice que no tiene tiempo, no insistas — pasa directamente al cierre de cita en otro horario.</p>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>2 · Filtro rápido de encaje</summary>
+        <div class="acc-body">
+          <p>Dos preguntas de calificación en menos de un minuto: <span class="say">"¿Cuántos locales tienen?"</span> y <span class="say">"¿Reciben reservas por teléfono o WhatsApp además de la web?"</span> Si no encaja con el ICP, agradece y cierra la llamada con respeto — no fuerces.</p>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>3 · Conexión con el dolor</summary>
+        <div class="acc-body">
+          <p>Pregunta ancla: <span class="say">"¿Diría que pierden alguna reserva por no llegar a contestar el teléfono o el WhatsApp en el turno fuerte?"</span> Deja que sea el propio restaurador quien lo diga — no se lo digas tú primero.</p>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>4 · Propuesta del diagnóstico gratuito</summary>
+        <div class="acc-body">
+          <p class="say">"Le propongo algo sencillo: un diagnóstico gratuito de 20 minutos donde le enseño, con sus propios datos, cuánto le está costando esto al mes. Sin compromiso."</p>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>5 · Cierre de cita</summary>
+        <div class="acc-body">
+          <p>Fija día y hora concretos, nunca dejar "ya le llamo yo". Confirma el horario evitando el turno de servicio.</p>
+        </div>
+      </details>
+
+      <div class="callout"><strong>Regla del turno:</strong> nunca llamar durante el servicio (13-16h / 20-23h). Las franjas útiles son mañana (9-12h) y tarde (17-19h).</div>
+    </section>
+
+    <section id="objeciones">
+      <div class="section-tag">08 · Objeciones</div>
+      <h2>Manejo de objeciones</h2>
+
+      <details class="acc">
+        <summary>"Mándame info por email"</summary>
+        <div class="acc-body">
+          <p>No cierres ahí: <span class="say">"Se lo mando encantado, pero para que la información sea útil necesito 2 datos de su restaurante — ¿tiene 1 minuto?"</span> Intenta reconducir siempre hacia la cita.</p>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>"Ya tengo TPV / CoverManager"</summary>
+        <div class="acc-body">
+          <p class="say">"Perfecto, eso es justo con lo que nos integramos — el agente no sustituye su sistema de reservas, contesta el teléfono y el WhatsApp antes de que la reserva llegue ahí."</p>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>"No confío en que una IA hable con mis clientes"</summary>
+        <div class="acc-body">
+          <p>Es la objeción más común, y hay que validarla, no rebatirla: <span class="say">"Lo entiendo perfectamente. Por eso el diagnóstico gratuito no lleva compromiso: usted escucha cómo suena el agente con sus propios datos antes de decidir nada."</span></p>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>"Es caro para lo que factura mi local"</summary>
+        <div class="acc-body">
+          <p>No discutas el precio en frío — redirige: <span class="say">"Por eso el diagnóstico es gratis: ahí vemos juntos si el ahorro compensa la inversión, con sus números reales, no con una tarifa genérica."</span></p>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>"No tengo tiempo ahora"</summary>
+        <div class="acc-body">
+          <p class="say">"Lo entiendo, por eso solo pido 20 minutos en el horario que menos le duela — ¿mañana a media mañana o a media tarde?"</p>
+        </div>
+      </details>
+    </section>
+
+    <section id="limites">
+      <div class="section-tag">09 · Límites</div>
+      <h2>Qué no prometer nunca</h2>
+      <div class="dodont">
+        <div class="box do">
+          <h4>Se puede decir</h4>
+          <ul>
+            <li>El diagnóstico es gratuito y sin compromiso</li>
+            <li>Se integra con el sistema de reservas que ya usan (CoverManager u otros)</li>
+            <li>El agente está diseñado específicamente para restauración</li>
+            <li>Hay casos reales de restaurantes con perfil similar (solo los que Valero Agency haya validado)</li>
+          </ul>
+        </div>
+        <div class="box dont">
+          <h4>Nunca prometer</h4>
+          <ul>
+            <li>Un % concreto de aumento de reservas o facturación sin haber hecho el diagnóstico</li>
+            <li>Que la IA sustituye por completo al equipo humano</li>
+            <li>Plazos de implementación más cortos de los reales (1-2 semanas)</li>
+            <li>Condiciones de tratamiento de datos de los clientes del restaurante sin confirmarlo antes con Valero Agency</li>
+            <li>Que el precio es negociable en la llamada en frío</li>
+          </ul>
+        </div>
+      </div>
+      <p class="subnote">Ante cualquier duda legal o de protección de datos (RGPD) sobre las conversaciones de los clientes del restaurante, no responder de forma improvisada — derivar la pregunta a Valero Agency antes de cerrar.</p>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="inversion">
+      <div class="section-tag">10 · Operativa de cierre</div>
+      <h2>Inversión y enlaces de pago</h2>
+      <p>Los enlaces son de Stripe. Al confirmar el plan con el cliente en el diagnóstico, envía el enlace correspondiente por WhatsApp o email.</p>
+
+      <div class="paybox">
+        <h3>Marketing y Contenido</h3>
+        <div class="pay-grid">
+          <div class="pay-card">
+            <div class="plan">Básico</div>
+            <div class="amount">950 €/mes</div>
+            <div class="then">1 local</div>
+            <a class="link" href="https://buy.stripe.com/8x2dR8ceT5W7fi8fLUbAs07" target="_blank" rel="noopener">buy.stripe.com/8x2dR8ceT5W7fi8fLUbAs07</a>
+          </div>
+          <div class="pay-card">
+            <div class="plan">Intermedio</div>
+            <div class="amount">1.300 €/mes</div>
+            <div class="then">1 local</div>
+            <a class="link" href="https://buy.stripe.com/6oUfZggv9dozfi8gPYbAs08" target="_blank" rel="noopener">buy.stripe.com/6oUfZggv9dozfi8gPYbAs08</a>
+          </div>
+          <div class="pay-card pending">
+            <div class="plan">Premium / Grupo</div>
+            <div class="amount">Desde 1.800 €/mes</div>
+            <div class="then">Varios locales</div>
+            <span style="font-size:.78rem; color:#D08370;">Sin enlace — a confirmar (ver Observaciones)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="paybox">
+        <h3>Agentes de IA para Reservas</h3>
+        <div class="pay-grid">
+          <div class="pay-card">
+            <div class="plan">Básico</div>
+            <div class="amount">1.000 € ahora</div>
+            <div class="then">luego 200 €/mes · 1 local</div>
+            <a class="link" href="https://buy.stripe.com/14AbJ0ceT98j9XO57gbAs0a" target="_blank" rel="noopener">buy.stripe.com/14AbJ0ceT98j9XO57gbAs0a</a>
+          </div>
+          <div class="pay-card">
+            <div class="plan">Avanzado</div>
+            <div class="amount">1.530 € ahora</div>
+            <div class="then">luego 380 €/mes · 1 local</div>
+            <a class="link" href="https://buy.stripe.com/14AbJ00wb84f5HyeHQbAs0b" target="_blank" rel="noopener">buy.stripe.com/14AbJ00wb84f5HyeHQbAs0b</a>
+          </div>
+          <div class="pay-card">
+            <div class="plan">Premium / Grupo</div>
+            <div class="amount">2.100 € ahora</div>
+            <div class="then">luego 600 €/mes · multi-local</div>
+            <a class="link" href="https://buy.stripe.com/5kQ8wO92H2JV9XOdDMbAs0c" target="_blank" rel="noopener">buy.stripe.com/5kQ8wO92H2JV9XOdDMbAs0c</a>
+          </div>
+        </div>
+      </div>
+      <p class="subnote" style="margin-top:14px;">Recuerda: nunca introduzcas el precio de forma espontánea en la llamada en frío — solo en la cita de diagnóstico, después de mostrar la cifra concreta.</p>
+    </section>
+
+    <div class="seal-divider"><span class="line"></span>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="4" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="line right"></span></div>
+
+    <section id="proceso-closer">
+      <div class="section-tag">11 · Proceso de Closer</div>
+      <h2>Procedimiento del Closer: cómo trabajar la base de 7.000 contactos</h2>
+      <p>El closer gestiona su bloque de la base por estados, avanzando cada contacto hasta el cierre o el descarte.</p>
+
+      <h3>Estados del contacto en la base</h3>
+      <div class="grid-3">
+        <div class="card"><div class="pill">Estado 1</div><h4>No contactado</h4><p>Contacto aún no trabajado, pendiente en el bloque asignado.</p></div>
+        <div class="card"><div class="pill">Estado 2</div><h4>Contactado sin respuesta</h4><p>Ha recibido al menos un intento de llamada sin descolgar — entra en la secuencia de reenganche.</p></div>
+        <div class="card"><div class="pill">Estado 3</div><h4>Cita agendada</h4><p>Se ha fijado día y hora concretos para el diagnóstico gratuito.</p></div>
+        <div class="card"><div class="pill">Estado 4</div><h4>Diagnóstico realizado</h4><p>Se ha presentado la cifra real y la propuesta comercial; en seguimiento hasta el cierre.</p></div>
+        <div class="card"><div class="pill">Estado 5</div><h4>Cerrado</h4><p>Plan contratado y enlace de pago enviado.</p></div>
+        <div class="card"><div class="pill">Estado 6</div><h4>Descartado</h4><p>No encaja con el ICP o ha declinado expresamente — no se vuelve a contactar en este ciclo.</p></div>
+      </div>
+
+      <h3>Procedimiento paso a paso</h3>
+      <div class="phase">
+        <div class="num active">1</div>
+        <div class="phase-body"><h4>Seleccionar el siguiente bloque</h4><p>Se trabaja el bloque de contactos del tier prioritario asignado, empezando por Tier 3-4.</p></div>
+      </div>
+      <div class="phase">
+        <div class="num active">2</div>
+        <div class="phase-body"><h4>Llamar en la franja horaria correcta</h4><p>9-12h o 17-19h. Nunca en turno de servicio (13-16h / 20-23h).</p></div>
+      </div>
+      <div class="phase">
+        <div class="num active">3</div>
+        <div class="phase-body"><h4>Aplicar el filtro rápido de ICP</h4><p>En los primeros segundos de la llamada (ver bloque 2 del script).</p></div>
+      </div>
+      <div class="phase">
+        <div class="num active">4</div>
+        <div class="phase-body"><h4>Proponer el diagnóstico y cerrar cita</h4><p>Si encaja y hay interés mínimo, se fija día y hora concretos.</p></div>
+      </div>
+      <div class="phase">
+        <div class="num active">5</div>
+        <div class="phase-body"><h4>Enviar WhatsApp de confirmación</h4><p>Inmediatamente tras colgar, confirmando la cita o dejando la puerta abierta si no hubo cierre.</p></div>
+      </div>
+      <div class="phase">
+        <div class="num active">6</div>
+        <div class="phase-body"><h4>Registrar el resultado de la llamada</h4><p>Actualizar el estado del contacto en el sistema de seguimiento del equipo.</p></div>
+      </div>
+      <div class="phase">
+        <div class="num active">7</div>
+        <div class="phase-body"><h4>Reintentar si no contesta</h4><p>Hasta 3 intentos en días y franjas distintas antes de pasar a "sin respuesta" y activar la secuencia de reenganche.</p></div>
+      </div>
+      <div class="phase">
+        <div class="num active">8</div>
+        <div class="phase-body"><h4>Tras el diagnóstico</h4><p>Si cierra: enviar el enlace de pago correspondiente. Si no cierra: fijar día y hora concretos de seguimiento, nunca dejarlo abierto.</p></div>
+      </div>
+
+      <h3>Mensajes de reenganche (quien no contesta al teléfono)</h3>
+      <details class="acc" open>
+        <summary>1 · Tras el primer intento sin respuesta</summary>
+        <div class="acc-body">
+          <p class="say">"Hola [Nombre], le llamé antes de Valero Agency — le quería enseñar algo sobre cómo gestionan hoy las reservas de [nombre del restaurante]. ¿Le viene bien que le llame mañana?"</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>2 · Tras el segundo intento sin respuesta</summary>
+        <div class="acc-body">
+          <p class="say">"[Nombre], le insisto porque creo que le puede interesar de verdad: un diagnóstico gratuito de 20 minutos con cifras reales de su restaurante, sin compromiso. ¿Qué día le viene bien?"</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>3 · Mensaje de cierre de ciclo (tercer intento, sin respuesta previa)</summary>
+        <div class="acc-body">
+          <p class="say">"[Nombre], no quiero insistir de más — si en algún momento le interesa ver cuántas reservas está dejando pasar, aquí estamos. Un saludo."</p>
+        </div>
+      </details>
+      <div class="callout"><strong>Regla del reenganche:</strong> máximo 3 intentos de llamada + 1 mensaje final. Si no hay respuesta, el contacto pasa a "descartado temporal" y se revisa en un nuevo ciclo de la base, no antes.</div>
+
+      <h3>Checklist antes de colgar cada llamada</h3>
+      <ul class="checklist">
+        <li><span class="box"></span> Confirmé que el restaurante encaja con el ICP (ticket medio &gt;35€, 2+ locales o facturación relevante)</li>
+        <li><span class="box"></span> No llamé en horario de servicio</li>
+        <li><span class="box"></span> No di precio en la llamada en frío</li>
+        <li><span class="box"></span> Propuse el diagnóstico gratuito, no un plan cerrado</li>
+        <li><span class="box"></span> Fijé día y hora concretos, no "ya le llamo yo"</li>
+        <li><span class="box"></span> Envié el WhatsApp de confirmación tras colgar</li>
+        <li><span class="box"></span> Registré el resultado de la llamada en el sistema de seguimiento</li>
+      </ul>
+    </section>
+
+    <section id="observaciones">
+      <div class="section-tag">12 · Observaciones</div>
+      <h2>Observaciones y puntos pendientes de validar</h2>
+      <p>Este informe se ha construido con criterio comercial propio a partir del material y el diagnóstico de mercado ya realizados sobre Valero Agency. Antes de formar al equipo de closers con él, hay 4 puntos que deben confirmarse:</p>
+      <ul class="obs-list">
+        <li><strong>Enlace de pago pendiente</strong>Falta el enlace de Stripe para Marketing y Redes Sociales — Premium/Grupo (desde 1.800 €/mes). Se ha dejado marcado como "a confirmar" en la sección de Inversión — el closer debe cerrar este plan por WhatsApp o email con Valero Agency hasta que se facilite el enlace.</li>
+        <li><strong>Bonus propuesto sin validar</strong>El "primer mes de mantenimiento al 50%" es una sugerencia mía para facilitar el cierre en frío, no una condición confirmada por Valero Agency. No debe comunicarse a ningún prospecto hasta validarlo.</li>
+        <li><strong>Sistema de seguimiento sin especificar</strong>No se ha indicado qué CRM o herramienta usa el equipo de closers para registrar la base de 7.000 contactos. En el informe se ha dejado como "sistema de seguimiento del equipo" de forma genérica — si existe una herramienta concreta, debe indicarse para actualizar el procedimiento.</li>
+        <li><strong>Script, objeciones y límites sin validar por el cliente</strong>El guion de llamada en frío, el manejo de objeciones y los límites de lo que se puede o no prometer han sido redactados con criterio comercial propio. Se recomienda una revisión conjunta con Valero Agency antes de formar al equipo, especialmente en lo relativo al tratamiento de datos de los clientes del restaurante.</li>
+        <li><strong>Dimensionamiento del equipo sin confirmar</strong>El cálculo de cuántos setter-closer hacen falta usa un supuesto de 50 llamadas efectivas/día por persona, sin datos reales del equipo. Falta confirmar el ritmo real de llamadas por closer y si existe un plazo objetivo para completar la primera vuelta de la base.</li>
+      </ul>
+    </section>
+
+    <footer>
+      <svg viewBox="0 0 100 100" fill="none"><polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#8E763A" stroke-width="5" fill="none"/><path d="M33 50 L45 62 L69 36" stroke="#8E763A" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Closer Search — Informe interno de referencia para el equipo de Closers sobre Valero Agency.
+    </footer>
+  </main>
+</div>
+</body>
+</html>
