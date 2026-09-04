@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía de Ventas Interactiva · VALERO AGENCY · Closer Search</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#060606; --void-soft:#0F0F0F; --void-card:#131313; --void-card2:#191919;
+    --line:#242220;
+    --gold:#C9A84C; --gold-soft:#C9A96E; --gold-dim:#8E763A; --gold-glow:rgba(201,168,76,.10);
+    --teal:#4ABFA3; --teal-glow:rgba(74,191,163,.10); --teal-dim:rgba(74,191,163,.3);
+    --red:#D97B6B; --red-glow:rgba(217,91,91,.09); --red-dim:rgba(217,91,91,.3);
+    --ink:#EDE7D8; --ink-dim:#B4AC98; --ink-faint:#807A6C;
+    --radius:8px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--void); color:var(--ink); font-family:'DM Sans',sans-serif; font-size:15.5px; line-height:1.6; -webkit-font-smoothing:antialiased; padding-bottom:64px;}
+  h1,h2,h3,h4{font-family:'Cormorant Garamond',serif; color:var(--ink); margin:0 0 .3em; font-weight:600; line-height:1.2;}
+  a{color:var(--gold);}
+  button{font-family:'DM Sans',sans-serif;}
+  label{font-size:.78rem; color:var(--ink-faint); display:block; margin-bottom:4px;}
+  input[type=text],input[type=tel],input[type=email],input[type=date],input[type=time],select,textarea{
+    width:100%; background:var(--void-card); border:1px solid var(--line); color:var(--ink);
+    border-radius:6px; padding:9px 11px; font-size:.86rem; font-family:'DM Sans',sans-serif;
+  }
+  input:focus,select:focus,textarea:focus{outline:1px solid var(--gold-dim);}
+
+  header.top{position:sticky; top:0; z-index:50; background:var(--void-soft); border-bottom:1px solid var(--gold-dim);}
+  .brandbar{display:flex; align-items:center; justify-content:space-between; padding:12px 22px; flex-wrap:wrap; gap:10px;}
+  .brandmark{display:flex; align-items:center; gap:10px;}
+  .brandmark svg{width:30px; height:30px;}
+  .brand-name{font-family:'Cinzel',serif; font-weight:600; font-size:.95rem; color:#fff; letter-spacing:.05em;}
+  .brand-name .search{color:var(--gold);}
+  .brand-title{font-size:.78rem; color:var(--ink-dim); margin-top:1px;}
+  .leadname-box{display:flex; align-items:center; gap:8px; font-size:.78rem; color:var(--ink-faint);}
+  .leadname-box input{width:170px;}
+
+  .tabs{display:flex; gap:4px; padding:0 22px; overflow-x:auto; background:#000; border-bottom:1px solid var(--line);}
+  .tabbtn{background:none; border:none; color:var(--ink-faint); padding:12px 14px; font-size:.82rem; cursor:pointer; white-space:nowrap; border-bottom:2px solid transparent;}
+  .tabbtn.active{color:var(--gold); border-bottom-color:var(--gold);}
+  .tabbtn:hover{color:var(--gold-soft);}
+
+  main{max-width:920px; margin:0 auto; padding:32px 22px 40px;}
+  .tabpanel{display:none;}
+  .tabpanel.active{display:block;}
+  .page-title{font-size:1.7rem; color:#fff;}
+  .lede{color:var(--ink-dim); max-width:68ch; margin-top:6px;}
+
+  table{width:100%; border-collapse:collapse; margin-top:16px; font-size:.88rem; background:var(--void-card); border-radius:var(--radius); overflow:hidden;}
+  thead th{background:#000; color:var(--gold); text-align:left; padding:10px 13px; font-size:.68rem; text-transform:uppercase; letter-spacing:.07em; font-weight:600; font-family:'Cinzel',serif; border-bottom:1px solid var(--gold-dim);}
+  tbody td{padding:10px 13px; border-bottom:1px solid var(--line); vertical-align:top; color:var(--ink-dim);}
+  tbody tr:last-child td{border-bottom:none;}
+  td.label{font-weight:600; color:var(--ink); white-space:nowrap;}
+
+  .callout{background:var(--gold-glow); border:1px solid var(--gold-dim); border-radius:var(--radius); padding:14px 18px; margin-top:16px; font-size:.87rem; color:var(--ink-dim);}
+  .callout strong{color:var(--gold);}
+  .callout.teal{background:var(--teal-glow); border-color:var(--teal-dim);}
+  .callout.teal strong{color:var(--teal);}
+  .callout.red{background:var(--red-glow); border-color:var(--red-dim);}
+  .callout.red strong{color:var(--red);}
+
+  .ficha-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:18px;}
+  .ficha-grid .full{grid-column:1/-1;}
+  .ficha-status{font-size:.8rem; color:var(--teal); margin-top:14px;}
+
+  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:16px;}
+  .card{background:var(--void-card); border:1px solid var(--line); border-radius:var(--radius); padding:16px 18px;}
+  .card h4{font-size:1rem; margin-bottom:6px;}
+  .card p{margin:0; font-size:.87rem; color:var(--ink-dim);}
+
+  .flow-card{background:var(--void-card2); border:1px solid var(--gold-dim); border-radius:10px; padding:22px 24px; margin-top:18px;}
+  .flow-tag{font-size:.68rem; text-transform:uppercase; letter-spacing:.1em; color:var(--gold-dim); font-family:'Cinzel',serif; margin-bottom:8px;}
+  .flow-script{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.14rem; color:var(--ink); background:var(--gold-glow); border-left:3px solid var(--gold); padding:14px 18px; border-radius:0 6px 6px 0; margin:10px 0 16px;}
+  .flow-note{font-size:.85rem; color:var(--ink-dim); margin-bottom:14px;}
+  .flow-options{display:flex; flex-direction:column; gap:8px;}
+  .flow-opt{text-align:left; background:var(--void-card); border:1px solid var(--line); color:var(--ink); padding:11px 14px; border-radius:7px; font-size:.87rem; cursor:pointer; transition:.15s;}
+  .flow-opt:hover{border-color:var(--gold); color:var(--gold-soft);}
+  .flow-opt.obj{border-left:3px solid var(--red-dim);}
+  .flow-opt.win{border-left:3px solid var(--teal-dim);}
+  .flow-opt.warn{border-left:3px solid var(--gold-dim);}
+  .flow-navrow{display:flex; gap:10px; margin-top:16px;}
+  .flow-back{background:none; border:1px solid var(--line); color:var(--ink-faint); padding:8px 14px; border-radius:6px; font-size:.78rem; cursor:pointer;}
+  .flow-back:hover{color:var(--gold-soft); border-color:var(--gold-dim);}
+  .flow-restart{background:none; border:1px solid var(--line); color:var(--ink-faint); padding:8px 14px; border-radius:6px; font-size:.78rem; cursor:pointer;}
+  .flow-restart:hover{color:var(--gold-soft); border-color:var(--gold-dim);}
+  .overlay-label{font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; color:var(--red); margin-bottom:6px; font-family:'Cinzel',serif;}
+  .flow-branch-label{font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; color:var(--gold-dim); margin-top:6px; font-family:'Cinzel',serif;}
+  .flow-branch-row{display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:12px; margin-top:10px;}
+  .flow-branch{background:var(--void-card); border:2px solid var(--gold-dim); color:var(--ink); padding:16px 16px; border-radius:9px; font-size:.92rem; cursor:pointer; text-align:center; transition:.15s;}
+  .flow-branch:hover{border-color:var(--gold); color:var(--gold-soft); background:var(--gold-glow);}
+  .flow-branch.win{border-color:var(--teal-dim);}
+  .flow-branch.win:hover{border-color:var(--teal); color:var(--teal);}
+  .termometro-box{background:#000; border:1px solid var(--gold-dim); border-radius:8px; padding:14px 18px; margin-top:16px;}
+  .termometro-box .trow{display:flex; gap:16px; flex-wrap:wrap; margin-top:10px;}
+  .termometro-box input[type=number]{width:60px;}
+  .page-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; max-width:920px; margin:26px auto 0; padding-top:20px; border-top:1px solid var(--line); flex-wrap:wrap;}
+  .page-nav-label{font-size:.78rem; color:var(--ink-faint); text-align:center; flex:1;}
+  .page-nav button:disabled{opacity:.35; cursor:default;}
+  @media (max-width:700px){
+    .flow-branch-row{grid-template-columns:1fr;}
+  }
+  .flow-end{border-color:var(--teal-dim); background:var(--teal-glow);}
+  .flow-end .flow-tag{color:var(--teal);}
+
+  .schedule-box{background:#000; border:1px solid var(--gold-dim); border-radius:8px; padding:16px 18px; margin-top:14px;}
+  .schedule-row{display:flex; gap:12px; flex-wrap:wrap;}
+  .schedule-row > div{flex:1; min-width:140px;}
+  .send-msg{background:var(--void-card); border:1px solid var(--line); border-radius:7px; padding:12px 14px; margin-top:12px; font-size:.83rem; color:var(--ink-dim); white-space:pre-wrap;}
+  .send-row{display:flex; gap:10px; margin-top:10px; flex-wrap:wrap;}
+  .btn{background:var(--gold); color:#060606; border:none; padding:9px 16px; border-radius:6px; font-size:.82rem; font-weight:600; cursor:pointer;}
+  .btn:hover{background:var(--gold-soft);}
+  .btn.ghost{background:none; border:1px solid var(--gold-dim); color:var(--gold-soft);}
+  .btn.wa{background:#25D366; color:#04140b;}
+  .btn.mail{background:var(--void-card); border:1px solid var(--gold-dim); color:var(--gold-soft);}
+
+  .checklist{list-style:none; padding:0; margin-top:16px;}
+  .checklist li{display:flex; gap:10px; align-items:flex-start; padding:7px 0; font-size:.88rem; color:var(--ink-dim); border-bottom:1px dashed var(--line);}
+  .checklist li:last-child{border-bottom:none;}
+  .checklist .box{flex:0 0 15px; width:15px; height:15px; border:1px solid var(--gold-dim); border-radius:2px; margin-top:2px;}
+
+  .export-box{background:#000; border:1px solid var(--gold-dim); border-radius:10px; padding:20px 22px; margin-top:18px; font-family:monospace; font-size:.82rem; white-space:pre-wrap; color:var(--ink-dim); max-height:420px; overflow:auto;}
+
+  .quickbar{position:fixed; left:0; right:0; bottom:0; z-index:60; background:#000; border-top:1px solid var(--gold-dim); padding:9px 22px; display:flex; gap:10px; flex-wrap:wrap; font-size:.78rem;}
+  .qgroup{display:inline-flex; align-items:center; gap:8px; background:var(--void-card); border:1px solid var(--line); border-radius:20px; padding:6px 12px; color:var(--ink-dim); text-decoration:none;}
+  .qgroup:hover{border-color:var(--gold-dim); color:var(--gold-soft);}
+
+  @media (max-width:700px){
+    .ficha-grid, .grid-2{grid-template-columns:1fr;}
+    main{padding:22px 14px 40px;}
+    .schedule-row > div{min-width:100%;}
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<header class="top">
+  <div class="brandbar">
+    <div class="brandmark">
+      <svg viewBox="0 0 100 100" fill="none">
+        <polygon points="50,4 90,26 90,74 50,96 10,74 10,26" stroke="#C9A84C" stroke-width="3" fill="#060606"/>
+        <polygon points="50,16 79,32 79,68 50,84 21,68 21,32" stroke="#8E763A" stroke-width="1.2" fill="none"/>
+        <path d="M33 50 L45 62 L69 36" stroke="#C9A84C" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div>
+        <div class="brand-name">CLOSER<span class="search"> SEARCH</span></div>
+        <div class="brand-title">Guía de Ventas Interactiva · VALERO AGENCY</div>
+      </div>
+    </div>
+    <div class="leadname-box">Restaurante: <input type="text" id="despachoInput" placeholder="Nombre del restaurante"></div>
+  </div>
+  <div class="tabs" id="tabs">
+    <button class="tabbtn active" data-tab="ficha">Ficha del restaurante</button>
+    <button class="tabbtn" data-tab="prospeccion">Prospección</button>
+    <button class="tabbtn" data-tab="oferta">Planes y avatar</button>
+    <button class="tabbtn" data-tab="marcos">Marcos mentales</button>
+    <button class="tabbtn" data-tab="llamada1">Llamada 1 · Filtro y pitch</button>
+    <button class="tabbtn" data-tab="agendar-demo">Agendar diagnóstico</button>
+    <button class="tabbtn" data-tab="llamada2">Llamada 2 · Diagnóstico y cierre</button>
+    <button class="tabbtn" data-tab="cierre">Cierre y pagos</button>
+    <button class="tabbtn" data-tab="exportar">Exportar ficha</button>
+  </div>
+</header>
+
+<main>
+
+  <section class="tabpanel active" id="tab-ficha">
+    <h2 class="page-title">Ficha del restaurante</h2>
+    <p class="lede">Rellena esto al principio de la Llamada 1. Estos datos sustituyen etiquetas como [Restaurante], [Ciudad] o [Plan] en los guiones, y alimentan los mensajes de WhatsApp/email y la ficha exportable.</p>
+    <div class="ficha-grid">
+      <div><label>Setter-closer (quién hace la llamada)</label>
+        <input type="text" data-f="closer" oninput="setF(this)" placeholder="Tu nombre">
+      </div>
+      <div><label>Nombre del contacto</label><input type="text" data-f="contacto" oninput="setF(this)"></div>
+      <div><label>Nombre del restaurante</label><input type="text" data-f="despacho" oninput="setF(this)"></div>
+      <div><label>Provincia / zona</label>
+        <select data-f="provincia" oninput="setF(this)">
+          <option value="">Elegir...</option>
+          <option>Álava</option><option>Albacete</option><option>Alicante</option><option>Almería</option>
+          <option>Asturias</option><option>Ávila</option><option>Badajoz</option><option>Barcelona</option>
+          <option>Burgos</option><option>Cáceres</option><option>Cádiz</option><option>Cantabria</option>
+          <option>Castellón</option><option>Ciudad Real</option><option>Córdoba</option><option>Cuenca</option>
+          <option>Gerona</option><option>Granada</option><option>Guadalajara</option><option>Guipúzcoa</option>
+          <option>Huelva</option><option>Huesca</option><option>Islas Baleares</option><option>Jaén</option>
+          <option>La Coruña</option><option>La Rioja</option><option>Las Palmas</option><option>León</option>
+          <option>Lérida</option><option>Lugo</option><option>Madrid</option><option>Málaga</option>
+          <option>Murcia</option><option>Navarra</option><option>Orense</option><option>Palencia</option>
+          <option>Pontevedra</option><option>Salamanca</option><option>Segovia</option><option>Sevilla</option>
+          <option>Soria</option><option>Tarragona</option><option>Santa Cruz de Tenerife</option><option>Teruel</option>
+          <option>Toledo</option><option>Valencia</option><option>Valladolid</option><option>Vizcaya</option>
+          <option>Zamora</option><option>Zaragoza</option><option>Ceuta</option><option>Melilla</option>
+        </select>
+      </div>
+      <div><label>Ciudad</label>
+        <select id="ciudad-select" onchange="handleCiudadSelect(this)">
+          <option value="">Elegir...</option>
+          <option>Madrid</option><option>Barcelona</option><option>Valencia</option><option>Sevilla</option>
+          <option>Zaragoza</option><option>Málaga</option><option>Murcia</option><option>Palma de Mallorca</option>
+          <option>Las Palmas de Gran Canaria</option><option>Bilbao</option><option>Alicante</option><option>Córdoba</option>
+          <option>Valladolid</option><option>Vigo</option><option>Gijón</option><option>L'Hospitalet de Llobregat</option>
+          <option>A Coruña</option><option>Vitoria-Gasteiz</option><option>Granada</option><option>Elche</option>
+          <option>Oviedo</option><option>Badalona</option><option>Cartagena</option><option>Terrassa</option>
+          <option>Jerez de la Frontera</option><option>Sabadell</option><option>Móstoles</option><option>Alcalá de Henares</option>
+          <option>Pamplona</option><option>Fuenlabrada</option><option>Almería</option><option>Leganés</option>
+          <option>Santander</option><option>San Sebastián</option><option>Castellón de la Plana</option><option>Burgos</option>
+          <option>Albacete</option><option>Getafe</option><option>Alcorcón</option><option>Salamanca</option>
+          <option>Logroño</option><option>Huelva</option><option>Marbella</option><option>Lleida</option>
+          <option>Tarragona</option><option>León</option><option>Badajoz</option><option>Cádiz</option>
+          <option>Toledo</option><option>Pontevedra</option><option>Girona</option><option>Ourense</option>
+          <option value="__otro__">Otra (escribir)</option>
+        </select>
+        <input type="text" id="ciudad-otro" data-f="ciudad" oninput="setF(this)" placeholder="Nombre de la ciudad" style="display:none; margin-top:6px;">
+      </div>
+      <div><label>Nº de locales</label>
+        <select data-f="locales" oninput="setF(this)">
+          <option value="">Elegir...</option>
+          <option>1 local</option>
+          <option>2-3 locales</option>
+          <option>4 o más locales</option>
+        </select>
+      </div>
+      <div><label>Ticket medio aproximado</label>
+        <select data-f="ticket" oninput="setF(this)">
+          <option value="">Elegir...</option>
+          <option>Menos de 25€</option>
+          <option>Entre 25€ y 35€</option>
+          <option>Más de 35€</option>
+        </select>
+      </div>
+      <div><label>Teléfono fijo</label><input type="tel" data-f="telefono_fijo" oninput="setF(this)"></div>
+      <div><label>Teléfono móvil (para WhatsApp)</label><input type="tel" data-f="telefono_movil" oninput="setF(this)" placeholder="con prefijo, ej. 34..."></div>
+      <div><label>Email</label><input type="email" data-f="email" oninput="setF(this)"></div>
+      <div><label>Plan recomendado</label>
+        <select data-f="pack" oninput="setF(this)">
+          <option value="">Elegir...</option>
+          <option value="Agentes IA Básico (1.000€ ahora, luego 200€/mes)">Agentes IA Básico · 1.000€ + 200€/mes</option>
+          <option value="Agentes IA Avanzado (1.530€ ahora, luego 380€/mes)">Agentes IA Avanzado · 1.530€ + 380€/mes</option>
+          <option value="Agentes IA Premium/Grupo (2.100€ ahora, luego 600€/mes)">Agentes IA Premium/Grupo · 2.100€ + 600€/mes</option>
+          <option value="Marketing Básico (950€/mes)">Marketing Básico · 950€/mes</option>
+          <option value="Marketing Intermedio (1.300€/mes)">Marketing Intermedio · 1.300€/mes</option>
+          <option value="Marketing Premium/Grupo (desde 1.800€/mes, a medida)">Marketing Premium/Grupo · desde 1.800€/mes</option>
+        </select>
+      </div>
+      <div class="full"><label>Recurso de la demo (grabación o número del agente de IA)</label><input type="text" data-f="crmlink" oninput="setF(this)" placeholder="Número de teléfono del agente o enlace a la grabación"></div>
+      <div class="full"><label>Resultado Llamada 2 / notas de cierre</label><textarea rows="3" data-f="notas" oninput="setF(this)"></textarea></div>
+      <div class="full" id="ficha-pair" style="display:none;"></div>
+    </div>
+    <div class="ficha-status" id="ficha-status"></div>
+    <div class="send-row" style="margin-top:18px;">
+      <button class="btn" onclick="goTab('llamada1')">📞 Ir a la Llamada 1</button>
+      <button class="btn ghost" onclick="goTab('agendar-demo')">📅 Ir a Agendar diagnóstico</button>
+      <button class="btn ghost" onclick="goTab('llamada2')">📞 Ir a la Llamada 2 · Diagnóstico y cierre</button>
+      <button class="btn ghost" onclick="goTab('oferta')">📋 Ver Planes y avatar</button>
+      <button class="btn ghost" onclick="goTab('cierre')">💳 Ver Cierre y pagos</button>
+    </div>
+    <div class="callout" id="meet-reminder" style="margin-top:18px;"><strong>Antes de tu primera llamada:</strong> configura el recurso fijo de demo del agente de IA (una sola vez, se usa en todas las llamadas). <button class="btn ghost" style="margin-top:8px;" onclick="goTab('prospeccion')">🔗 Configurar recurso de demo</button></div>
+  </section>
+
+  <section class="tabpanel" id="tab-prospeccion">
+    <h2 class="page-title">Cómo llega el restaurante y qué hacer antes de la Llamada 1</h2>
+    <p class="lede">Llamada en frío a restaurantes, en nombre del equipo de Valero Agency. El objetivo de la Llamada 1 nunca es vender el plan: es conseguir que el restaurante acepte el diagnóstico gratuito.</p>
+    <h3>Checklist antes de marcar</h3>
+    <ul class="checklist">
+      <li><span class="box"></span> Nombre del contacto y del restaurante</li>
+      <li><span class="box"></span> Provincia / ciudad y franja horaria correcta (nunca en turno de servicio)</li>
+      <li><span class="box"></span> Encaje aproximado con el ICP (ticket medio superior a 25-35€, 2 o más locales prioritario)</li>
+      <li><span class="box"></span> Recurso de demo del agente de IA ya guardado en la Ficha del restaurante</li>
+      <li><span class="box"></span> Calendario libre para ofrecer franjas del diagnóstico en la misma llamada</li>
+    </ul>
+    <div class="callout"><strong>Regla de la Llamada 1:</strong> nunca se habla de precios de planes en esta llamada. El único objetivo es la cita para el diagnóstico gratuito. Cierre excepcional permitido si el restaurante insiste en comprar ya, sin esperar al diagnóstico.</div>
+    <h3>Configuración general (una sola vez, se usa en todas las llamadas)</h3>
+    <div class="ficha-grid">
+      <div class="full">
+        <label>Recurso fijo de demo del agente de IA (siempre el mismo)</label>
+        <input type="text" id="meetlink-input" placeholder="Número de teléfono del agente o enlace a la grabación" oninput="setMeetLink(this.value)">
+      </div>
+    </div>
+    <div class="ficha-status" id="meetlink-status"></div>
+  </section>
+
+  <section class="tabpanel" id="tab-oferta">
+    <h2 class="page-title">Planes y avatar del restaurante</h2>
+    <h3>Avatar</h3>
+    <p>Restaurante con ticket medio superior a 35€ y 2 o más locales en explotación, prioridad Tier 3-4. Decisor escéptico ante "otra agencia más", con muy poco tiempo, que decide rápido si ve una cifra concreta.</p>
+    <div class="callout"><strong>El dolor real:</strong> menos del 1% de la facturación del sector de restauración va hoy a marketing con IA. El dolor no es "faltan clientes", es no tener un sistema que conteste el teléfono y el WhatsApp cuando el local está lleno de servicio.</div>
+    <h3>Agentes de IA para Reservas</h3>
+    <table>
+      <thead><tr><th>Plan</th><th>Contenido</th><th>Precio</th></tr></thead>
+      <tbody>
+        <tr><td class="label">Básico</td><td>Agente de chat y WhatsApp, base de preguntas frecuentes, gestión simple de reservas. 1 local</td><td>1.000€ ahora, luego 200€/mes</td></tr>
+        <tr><td class="label">Avanzado</td><td>Voz + chat + WhatsApp en todos los canales, integración con sistema de reservas, recordatorios y reducción de no-shows. 1 local</td><td>1.530€ ahora, luego 380€/mes</td></tr>
+        <tr><td class="label">Premium / Grupo</td><td>Multi-local, un agente por cada punto de venta, integraciones a medida, panel de seguimiento mensual</td><td>2.100€ ahora, luego 600€/mes</td></tr>
+      </tbody>
+    </table>
+    <h3>Marketing y Contenido</h3>
+    <table>
+      <thead><tr><th>Plan</th><th>Contenido</th><th>Precio</th></tr></thead>
+      <tbody>
+        <tr><td class="label">Básico</td><td>Estrategia y calendario de contenidos mensual, gestión de Instagram y TikTok, copywriting y community management. 1 local</td><td>950€/mes</td></tr>
+        <tr><td class="label">Intermedio</td><td>Todo lo del plan Básico más producción fotográfica y audiovisual mensual, mayor cadencia de publicación, optimización mensual. 1 local</td><td>1.300€/mes</td></tr>
+        <tr><td class="label">Premium / Grupo</td><td>Varios locales, estrategia de contenido a medida por local</td><td>Desde 1.800€/mes</td></tr>
+      </tbody>
+    </table>
+    <div class="callout teal"><strong>Marketing Premium/Grupo:</strong> desde 1.800€/mes. Al ser un servicio a medida según el número de locales, confirma con el restaurante el alcance exacto antes de enviar el enlace de pago.</div>
+  </section>
+
+  <section class="tabpanel" id="tab-marcos">
+    <h2 class="page-title">Marcos mentales del closer</h2>
+    <div class="grid-2">
+      <div class="card"><h4>Somos el equipo de Valero Agency</h4><p>En la llamada nos presentamos siempre como Valero Agency, nunca como una empresa externa. Genera más confianza y coherencia con la marca que el restaurante ya conoce o va a conocer.</p></div>
+      <div class="card"><h4>Vender el diagnóstico, no el precio</h4><p>El restaurante no compra un plan a ciegas, compra ver primero cuánto le está costando no actuar.</p></div>
+      <div class="card"><h4>El diagnóstico sustituye al argumento</h4><p>Ante la duda de si la IA funciona de verdad, no se discute: se enseña. "No se lo explico, se lo hago escuchar."</p></div>
+      <div class="card"><h4>La Llamada 1 no vende, agenda</h4><p>Forzar el cierre del plan en la primera llamada suele generar más resistencia que agendar un diagnóstico concreto.</p></div>
+    </div>
+    <div class="callout teal"><strong>Límites:</strong> nunca prometer un porcentaje exacto de aumento de reservas o facturación. La implementación real toma 1 a 2 semanas, no es instantánea. El plan Marketing Premium/Grupo no se ofrece hoy con un precio cerrado, se prepara a medida.</div>
+  </section>
+
+  <section class="tabpanel" id="tab-llamada1">
+    <h2 class="page-title">Llamada 1 · Filtro y pitch</h2>
+    <p class="lede">Objetivo: cualificar rápido (ticket medio, número de locales), diagnosticar cómo gestionan hoy las reservas y proponer el diagnóstico gratuito. Termina en tres caminos: hacer la demo ahora, cerrar sin demo, o agendar para otro momento.</p>
+    <div id="flow1-container"></div>
+  </section>
+
+  <section class="tabpanel" id="tab-agendar-demo">
+    <h2 class="page-title">Agendar diagnóstico</h2>
+    <p class="lede">Se llega aquí cuando el restaurante prefiere fijar el diagnóstico para otro momento. Calendario, mensaje de confirmación y recordatorios (24h antes y el mismo día).</p>
+    <div id="flowAgendar-container"></div>
+  </section>
+
+  <section class="tabpanel" id="tab-llamada2">
+    <h2 class="page-title">Llamada 2 · Diagnóstico en vivo y cierre</h2>
+    <p class="lede">Se usa una vez confirmada la cita desde "Agendar diagnóstico". Objetivo: cualificar, hacer sonar el agente de IA en directo, presentar los planes disponibles y cerrar.</p>
+    <div id="flow2-container"></div>
+  </section>
+
+  <section class="tabpanel" id="tab-cierre">
+    <h2 class="page-title">Cierre y pagos</h2>
+    <table>
+      <thead><tr><th>Condición</th><th>Detalle</th></tr></thead>
+      <tbody>
+        <tr><td class="label">Pago Agentes IA</td><td>Pago fraccionado: importe de implementación ahora, luego mantenimiento mensual</td></tr>
+        <tr><td class="label">Pago Marketing</td><td>Solo cuota mensual, sin pago de implementación aparte</td></tr>
+        <tr><td class="label">Activación</td><td>Implementación real de 1 a 2 semanas tras confirmar el plan</td></tr>
+        <tr><td class="label">Entrega</td><td>Agente conectado al sistema de reservas del restaurante (CoverManager u otro) y panel de seguimiento</td></tr>
+        <tr><td class="label">Marketing Premium/Grupo</td><td>Enlace de pago disponible, desde 1.800€/mes. Se cierra a medida según el número de locales</td></tr>
+      </tbody>
+    </table>
+    <div class="callout teal"><strong>Marketing Premium/Grupo:</strong> ya tiene enlace de pago (desde 1.800€/mes). Al ser a medida según el número de locales, confirma el alcance con el restaurante antes de enviar el enlace.</div>
+  </section>
+
+  <section class="tabpanel" id="tab-exportar">
+    <h2 class="page-title">Exportar ficha</h2>
+    <p class="lede">Genera el resumen de la ficha del restaurante, listo para copiar y pegar en el CRM del equipo, o descargar en PDF. Los campos de closer, objeciones y bloque donde se detuvo la llamada quedan guardados para poder construir más adelante un informe de análisis agregado (tasa de cierre por closer, objeciones más frecuentes, dónde se pierden las llamadas, etc.).</p>
+    <button class="btn" onclick="guardarFichaActual()">💾 Guardar ficha</button>
+    <button class="btn" style="background:#D9534F; color:#fff;" onclick="exportPDF()">⬇ Exportar a PDF</button>
+    <div class="export-box" id="exportBox">Pulsa "Exportar a PDF" o revisa la pestaña Ficha del restaurante.</div>
+    <h3 style="margin-top:28px;">Fichas guardadas</h3>
+    <p class="lede">Todos los restaurantes que has guardado hasta ahora. Pulsa "Cargar" para recuperar cualquiera.</p>
+    <div id="fichas-guardadas-list" style="margin-top:10px;"></div>
+  </section>
+  <div class="page-nav">
+    <button class="btn ghost" id="pageNavPrev" onclick="pageNav(-1)">← Página anterior</button>
+    <span class="page-nav-label" id="pageNavLabel"></span>
+    <button class="btn" id="pageNavNext" onclick="pageNav(1)">Página siguiente →</button>
+  </div>
+
+</main>
+
+<div class="quickbar">
+  <a class="qgroup" href="#" onclick="return openWA(fill('Hola [Contacto], le confirmamos el diagnóstico con Valero Agency el ' + (ficha.fecha||'[fecha]') + ' a las ' + (ficha.hora||'[hora]') + '. Un saludo.'));">📱 WhatsApp rápido</a>
+  <a class="qgroup" href="#" onclick="return openMail('Confirmación diagnóstico Valero Agency', fill('Hola [Contacto], le confirmamos el diagnóstico con Valero Agency el ' + (ficha.fecha||'[fecha]') + ' a las ' + (ficha.hora||'[hora]') + '. Un saludo.'));">✉️ Email rápido</a>
+  <a class="qgroup" href="#" onclick="if(ficha.crmlink){window.open(ficha.crmlink,'_blank');}else{alert('Añade primero el recurso de demo en la Ficha del restaurante');} return false;">🖥️ Abrir demo del agente</a>
+  <a class="qgroup" href="#" onclick="goTab('llamada1'); return false;">↺ Llamada 1</a>
+  <a class="qgroup" href="#" onclick="goTab('agendar-demo'); return false;">↺ Agendar diagnóstico</a>
+  <a class="qgroup" href="#" onclick="goTab('llamada2'); return false;">↺ Llamada 2</a>
+</div>
+
+<script>
+document.querySelectorAll('.tabbtn').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    document.querySelectorAll('.tabbtn').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.tabpanel').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    document.getElementById('tab-'+b.dataset.tab).classList.add('active');
+    updatePageNav();
+  });
+});
+function goTab(name){
+  document.querySelectorAll('.tabbtn').forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+  document.querySelectorAll('.tabpanel').forEach(x=>x.classList.toggle('active', x.id==='tab-'+name));
+  updatePageNav();
+}
+
+const PAGE_ORDER = ['ficha','prospeccion','oferta','marcos','llamada1','agendar-demo','llamada2','cierre','exportar'];
+const PAGE_TITLES = {
+  ficha:'Ficha del restaurante', prospeccion:'Prospección', oferta:'Planes y avatar', marcos:'Marcos mentales',
+  llamada1:'Llamada 1 · Filtro y pitch', 'agendar-demo':'Agendar diagnóstico', llamada2:'Llamada 2 · Diagnóstico y cierre', cierre:'Cierre y pagos', exportar:'Exportar ficha'
+};
+function currentTab(){
+  const active = document.querySelector('.tabbtn.active');
+  return active ? active.dataset.tab : 'ficha';
+}
+const TAB_FLOW = {llamada1:'flow1', 'agendar-demo':'flowAgendar', llamada2:'flow2'};
+function pageNav(dir){
+  if(dir===1){
+    const activeFlow = TAB_FLOW[currentTab()];
+    if(activeFlow){
+      const flows = {flow1:flow1, flow2:flow2, flowAgendar:flowAgendar};
+      const hist = flowHistory[activeFlow];
+      const curNode = hist[hist.length-1];
+      const node = flows[activeFlow][curNode];
+      if(node){
+        if(node.end){
+          let target = 'exportar';
+          if(activeFlow==='flow1' && node.success){ target = 'cierre'; }
+          if(activeFlow==='flow2' && node.success){ target = 'cierre'; }
+          goTab(target);
+          window.scrollTo({top:0, behavior:'smooth'});
+          return;
+        }
+        if(node.options && node.options.length === 1){
+          const o = node.options[0];
+          if(o.jumpFlowTo){ jumpFlow(o.jumpFlowTo.flow, o.jumpFlowTo.node); }
+          else if(o.pack){ choosePack(activeFlow, o.pack, o.next); }
+          else { renderFlow(activeFlow, o.next); }
+          window.scrollTo({top:0, behavior:'smooth'});
+          return;
+        }
+      }
+    }
+  }
+  const idx = PAGE_ORDER.indexOf(currentTab());
+  const next = idx + dir;
+  if(next < 0 || next >= PAGE_ORDER.length){ return; }
+  goTab(PAGE_ORDER[next]);
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function updatePageNav(){
+  const idx = PAGE_ORDER.indexOf(currentTab());
+  document.getElementById('pageNavPrev').disabled = (idx <= 0);
+  document.getElementById('pageNavNext').disabled = (idx >= PAGE_ORDER.length-1);
+  document.getElementById('pageNavLabel').textContent = (idx+1)+' / '+PAGE_ORDER.length+' · '+PAGE_TITLES[PAGE_ORDER[idx]];
+}
+updatePageNav();
+
+let ficha = {};
+const FICHA_FIELDS = ['closer','contacto','despacho','provincia','ciudad','locales','ticket','telefono_fijo','telefono_movil','email','pack','crmlink','notas','fecha','hora','importancia','confianza'];
+FICHA_FIELDS.forEach(f=>{ ficha[f] = localStorage.getItem('valero_f_'+f) || ''; });
+ficha.objeciones1 = JSON.parse(localStorage.getItem('valero_objeciones1')||'[]');
+ficha.objeciones2 = JSON.parse(localStorage.getItem('valero_objeciones2')||'[]');
+ficha.bloqueParada1 = localStorage.getItem('valero_bloqueParada1') || '';
+ficha.bloqueParada2 = localStorage.getItem('valero_bloqueParada2') || '';
+
+function setF(el){
+  ficha[el.dataset.f] = el.value;
+  localStorage.setItem('valero_f_'+el.dataset.f, el.value);
+  if(el.dataset.f==='despacho'){
+    document.getElementById('despachoInput').value = el.value;
+    localStorage.setItem('valero_despachoname', el.value);
+  }
+  document.getElementById('ficha-status').textContent = '✓ Guardado en este navegador';
+  refreshVisibleFlows();
+}
+function refreshVisibleFlows(){
+  ['flow1','flow2','flowAgendar'].forEach(flowName=>{
+    const hist = flowHistory[flowName];
+    if(hist && hist.length){
+      renderFlow(flowName, hist[hist.length-1], false);
+    }
+  });
+}
+
+function getFichasGuardadas(){
+  return JSON.parse(localStorage.getItem('valero_fichas')||'[]');
+}
+function saveFichasGuardadas(arr){
+  localStorage.setItem('valero_fichas', JSON.stringify(arr));
+}
+function guardarFichaActual(){
+  const snapshot = {};
+  FICHA_FIELDS.forEach(f=>{ snapshot[f] = ficha[f]||''; });
+  snapshot.objeciones1 = ficha.objeciones1||[];
+  snapshot.objeciones2 = ficha.objeciones2||[];
+  snapshot.bloqueParada1 = ficha.bloqueParada1||'';
+  snapshot.bloqueParada2 = ficha.bloqueParada2||'';
+  const arr = getFichasGuardadas();
+  const entry = {
+    id: 'f'+Date.now(),
+    despacho: ficha.despacho || '(sin nombre de restaurante)',
+    contacto: ficha.contacto || '',
+    savedAt: new Date().toLocaleString('es-ES'),
+    data: snapshot
+  };
+  arr.push(entry);
+  saveFichasGuardadas(arr);
+  document.getElementById('ficha-status').textContent = '✓ Ficha guardada en la lista';
+  renderFichasGuardadas();
+}
+function cargarFicha(id){
+  const arr = getFichasGuardadas();
+  const entry = arr.find(e=>e.id===id);
+  if(!entry) return;
+  FICHA_FIELDS.forEach(f=>{
+    ficha[f] = entry.data[f]||'';
+    localStorage.setItem('valero_f_'+f, ficha[f]);
+  });
+  ficha.objeciones1 = entry.data.objeciones1||[];
+  ficha.objeciones2 = entry.data.objeciones2||[];
+  ficha.bloqueParada1 = entry.data.bloqueParada1||'';
+  ficha.bloqueParada2 = entry.data.bloqueParada2||'';
+  localStorage.setItem('valero_objeciones1', JSON.stringify(ficha.objeciones1));
+  localStorage.setItem('valero_objeciones2', JSON.stringify(ficha.objeciones2));
+  localStorage.setItem('valero_bloqueParada1', ficha.bloqueParada1);
+  localStorage.setItem('valero_bloqueParada2', ficha.bloqueParada2);
+  aplicarFichaAlDOM();
+  document.getElementById('ficha-status').textContent = '✓ Ficha cargada: '+entry.despacho;
+}
+function eliminarFicha(id){
+  const arr = getFichasGuardadas().filter(e=>e.id!==id);
+  saveFichasGuardadas(arr);
+  renderFichasGuardadas();
+}
+function nuevaFicha(){
+  FICHA_FIELDS.forEach(f=>{
+    if(f==='closer') return;
+    ficha[f] = '';
+    localStorage.setItem('valero_f_'+f, '');
+  });
+  ficha.objeciones1 = []; ficha.objeciones2 = [];
+  ficha.bloqueParada1 = ''; ficha.bloqueParada2 = '';
+  localStorage.setItem('valero_objeciones1','[]');
+  localStorage.setItem('valero_objeciones2','[]');
+  localStorage.setItem('valero_bloqueParada1','');
+  localStorage.setItem('valero_bloqueParada2','');
+  aplicarFichaAlDOM();
+  startFlow('flow1'); startFlow('flow2'); startFlow('flowAgendar');
+  document.getElementById('ficha-status').textContent = '✓ Ficha nueva, en blanco (se mantiene el closer)';
+}
+function aplicarFichaAlDOM(){
+  document.querySelectorAll('[data-f]').forEach(el=>{ el.value = ficha[el.dataset.f]||''; });
+  document.getElementById('despachoInput').value = ficha.despacho||'';
+  const ciudadPreset = [...ciudadSelect.options].some(o=>o.value===ficha.ciudad);
+  if(ficha.ciudad && ciudadPreset){ ciudadSelect.value = ficha.ciudad; ciudadOtro.style.display='none'; }
+  else if(ficha.ciudad){ ciudadSelect.value = '__otro__'; ciudadOtro.style.display='block'; ciudadOtro.value = ficha.ciudad; }
+  else { ciudadSelect.value=''; ciudadOtro.style.display='none'; }
+  refreshVisibleFlows();
+}
+function renderFichasGuardadas(){
+  const box = document.getElementById('fichas-guardadas-list');
+  const arr = getFichasGuardadas();
+  if(!arr.length){ box.innerHTML = '<div class="flow-note">Todavía no has guardado ninguna ficha.</div>'; return; }
+  let html = '';
+  arr.slice().reverse().forEach(e=>{
+    html += '<div class="card" style="margin-top:8px; display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;">';
+    html += '<div><strong style="color:var(--gold-soft);">'+e.despacho+'</strong><br><span style="font-size:.8rem; color:var(--ink-faint);">'+(e.contacto?e.contacto+' · ':'')+e.savedAt+'</span></div>';
+    html += '<div class="send-row" style="margin:0;">';
+    html += '<button class="btn ghost" onclick="cargarFicha(\''+e.id+'\')">Cargar</button>';
+    html += '<button class="btn ghost" onclick="eliminarFicha(\''+e.id+'\')">Eliminar</button>';
+    html += '</div></div>';
+  });
+  box.innerHTML = html;
+}
+renderFichasGuardadas();
+
+document.querySelectorAll('[data-f]').forEach(el=>{
+  const f = el.dataset.f;
+  if(ficha[f]){ el.value = ficha[f]; }
+});
+document.getElementById('despachoInput').value = ficha.despacho || localStorage.getItem('valero_despachoname') || '';
+document.getElementById('despachoInput').addEventListener('input', function(){
+  ficha.despacho = this.value;
+  localStorage.setItem('valero_f_despacho', this.value);
+  localStorage.setItem('valero_despachoname', this.value);
+  document.querySelectorAll('[data-f="despacho"]').forEach(i=>i.value=this.value);
+});
+
+const ciudadSelect = document.getElementById('ciudad-select');
+const ciudadOtro = document.getElementById('ciudad-otro');
+if(ficha.ciudad){
+  const presetOpt = [...ciudadSelect.options].some(o=>o.value===ficha.ciudad);
+  if(presetOpt){
+    ciudadSelect.value = ficha.ciudad;
+  } else {
+    ciudadSelect.value = '__otro__';
+    ciudadOtro.style.display = 'block';
+    ciudadOtro.value = ficha.ciudad;
+  }
+}
+function handleCiudadSelect(sel){
+  if(sel.value === '__otro__'){
+    ciudadOtro.style.display = 'block';
+    ciudadOtro.focus();
+  } else {
+    ciudadOtro.style.display = 'none';
+    ficha.ciudad = sel.value;
+    localStorage.setItem('valero_f_ciudad', sel.value);
+    document.getElementById('ficha-status').textContent = '✓ Guardado en este navegador';
+    refreshVisibleFlows();
+  }
+}
+
+function fill(text){
+  return text
+    .replace(/\[Closer\]/g, ficha.closer || '[Closer]')
+    .replace(/\[Contacto\]/g, ficha.contacto || '[Contacto]')
+    .replace(/\[Despacho\]/g, ficha.despacho || 'su restaurante')
+    .replace(/\[Restaurante\]/g, ficha.despacho || 'su restaurante')
+    .replace(/\[Provincia\]/g, ficha.provincia || '[zona]')
+    .replace(/\[Pack\]/g, ficha.pack || '[plan elegido]')
+    .replace(/\[fecha\]/g, formatFecha(ficha.fecha) || '[fecha]')
+    .replace(/\[hora\]/g, ficha.hora || '[hora]');
+}
+function formatFecha(iso){
+  if(!iso) return '';
+  const partes = iso.split('-');
+  if(partes.length !== 3) return iso;
+  const meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  const dia = parseInt(partes[2], 10);
+  const mes = meses[parseInt(partes[1], 10) - 1] || '';
+  return dia + ' de ' + mes;
+}
+function openWA(text){
+  const phone = (ficha.telefono_movil||'').replace(/\D/g,'');
+  if(!phone){ alert('Añade el teléfono del restaurante en la Ficha del restaurante.'); return false; }
+  window.open('https://wa.me/'+phone+'?text='+encodeURIComponent(text), '_blank');
+  return false;
+}
+function openMail(subject, body){
+  const email = ficha.email || '';
+  window.open('mailto:'+email+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body), '_blank');
+  return false;
+}
+
+let meetLink = localStorage.getItem('valero_meetlink') || 'http://agent.asalcedo.net/';
+document.getElementById('meetlink-input').value = meetLink;
+function setMeetLink(val){
+  meetLink = val;
+  localStorage.setItem('valero_meetlink', val);
+  document.getElementById('meetlink-status').textContent = '✓ Guardado en este navegador';
+  updateMeetReminder();
+}
+function updateMeetReminder(){
+  const el = document.getElementById('meet-reminder');
+  if(!el) return;
+  el.style.display = meetLink ? 'none' : 'block';
+}
+updateMeetReminder();
+function openMeet(){
+  if(!meetLink){ alert('Añade primero el recurso fijo de demo en la pestaña Prospección.'); return false; }
+  window.open(meetLink, '_blank');
+  return false;
+}
+function meetSendMsg(){
+  if(!meetLink){ return 'Añade primero el recurso fijo de demo en la pestaña Prospección.'; }
+  return fill('Hola [Contacto], le paso el enlace del agente de Valero Agency: '+meetLink+'. Pruébelo usted mismo ahora, seguimos al teléfono mientras tanto.');
+}
+function sendMeetLink(via){
+  if(!meetLink){ alert('Añade primero el recurso fijo de demo en la pestaña Prospección.'); return false; }
+  const msg = meetSendMsg();
+  if(via==='wa'){ return openWA(msg); }
+  return openMail('Recurso de la demo · Valero Agency', msg);
+}
+
+const flow1 = {
+  start:{
+    tag:'Apertura (15-20s)',
+    script:'"Buenos días, ¿hablo con [Restaurante]? Soy [Closer], le llamo de Valero Agency. Ayudamos a restaurantes con varios locales a dejar de perder reservas por no contestar a tiempo el teléfono o el WhatsApp, con agentes de voz e inteligencia artificial. ¿Tiene 30 segundos?"',
+    options:[
+      {t:'Responde con interés / dice que sí', next:'filtro_ticket'},
+      {t:'Objeción: "ya tenemos suficientes reservas"', cls:'obj', next:'obj_yatengo'},
+      {t:'Objeción: "mándame información por email"', cls:'obj', next:'obj_email'},
+      {t:'Objeción: "no tengo tiempo ahora"', cls:'obj', next:'obj_tiempo'},
+      {t:'No responde / corta la llamada', cls:'warn', next:'noresponde'}
+    ]
+  },
+  filtro_ticket:{
+    tag:'Filtro rápido 1/2 · Ticket medio',
+    script:'"Para ver si encajamos bien, ¿cuál es el ticket medio aproximado de sus clientes?"',
+    note:'Filtro suave: por debajo de 25€ el sistema no suele compensar económicamente.',
+    options:[
+      {t:'Ticket medio superior a 35€', cls:'win', next:'filtro_locales'},
+      {t:'Ticket medio entre 25€ y 35€', cls:'win', next:'filtro_locales'},
+      {t:'Ticket medio inferior a 25€', cls:'warn', next:'no_cumple_temprano'}
+    ]
+  },
+  filtro_locales:{
+    tag:'Filtro rápido 2/2 · Locales',
+    script:'"¿Cuántos locales tienen en explotación ahora mismo?"',
+    note:'2 o más locales es el perfil prioritario, pero 1 local también encaja con los planes Básico.',
+    options:[
+      {t:'2 o más locales', cls:'win', next:'diagnostico'},
+      {t:'1 local', next:'diagnostico'}
+    ]
+  },
+  diagnostico:{
+    tag:'Diagnóstico rápido',
+    script:'"Y ahora mismo, ¿cómo están gestionando las reservas y la comunicación con los clientes: teléfono y WhatsApp sin sistema, ya tienen CoverManager o algo similar, o han trabajado antes con alguna agencia de marketing?"',
+    note:'Cualificar sobre el dolor real antes de proponer el diagnóstico, no soltar el pitch en frío.',
+    options:[
+      {t:'Teléfono y WhatsApp, sin ningún sistema', next:'interes_sinsistema'},
+      {t:'Ya tienen CoverManager o similar, pero sin IA', next:'interes_covermanager'},
+      {t:'Ya trabajaron antes con otra agencia de marketing', next:'interes_otraagencia'}
+    ]
+  },
+  interes_sinsistema:{
+    tag:'Pitch de valor (tras diagnóstico: sin sistema)',
+    script:'"Entonces cada llamada o WhatsApp fuera de horario es una reserva que se puede estar perdiendo. Le propongo algo mejor que explicárselo por teléfono: le hago escuchar en directo cómo suena el agente de voz con sus propios datos. ¿Quiere que se lo demuestre ahora mismo, o prefiere que agendemos un diagnóstico para otro momento?"',
+    options:[
+      {t:'Hacer la demo ahora mismo, sin colgar', cls:'win', primary:true, next:'demo_ahora'},
+      {t:'Cerrar ya, sin necesidad de demo', primary:true, next:'cierre_excepcional'},
+      {t:'Agendar para otro momento', cls:'win', primary:true, jumpFlowTo:{flow:'flowAgendar',node:'agendar'}},
+      {t:'Pide más información antes de decidir', next:'masinfo'},
+      {t:'Pregunta cuánto cuesta antes de decidir', next:'preg_precio'}
+    ]
+  },
+  interes_covermanager:{
+    tag:'Pitch de valor (tras diagnóstico: ya tienen CoverManager)',
+    script:'"Perfecto, entonces ya tienen la base. El agente se integra con CoverManager, no lo sustituye: contesta el teléfono y el WhatsApp antes de que la reserva llegue a él. Le propongo algo mejor que explicárselo por teléfono: le hago escuchar en directo cómo suena. ¿Quiere que se lo demuestre ahora mismo, o prefiere que agendemos un diagnóstico para otro momento?"',
+    options:[
+      {t:'Hacer la demo ahora mismo, sin colgar', cls:'win', primary:true, next:'demo_ahora'},
+      {t:'Cerrar ya, sin necesidad de demo', primary:true, next:'cierre_excepcional'},
+      {t:'Agendar para otro momento', cls:'win', primary:true, jumpFlowTo:{flow:'flowAgendar',node:'agendar'}},
+      {t:'Pide más información antes de decidir', next:'masinfo'},
+      {t:'Pregunta cuánto cuesta antes de decidir', next:'preg_precio'}
+    ]
+  },
+  interes_otraagencia:{
+    tag:'Pitch de valor (tras diagnóstico: otra agencia antes)',
+    script:'"Entonces sabrá valorar bien la diferencia. Casi ninguna agencia de marketing gastronómico integra hoy un agente de IA conectado a las reservas, la mayoría se queda en redes sociales. Le hago escuchar en directo cómo suena el nuestro. ¿Quiere que se lo demuestre ahora mismo, o prefiere que agendemos un diagnóstico para otro momento?"',
+    options:[
+      {t:'Hacer la demo ahora mismo, sin colgar', cls:'win', primary:true, next:'demo_ahora'},
+      {t:'Cerrar ya, sin necesidad de demo', primary:true, next:'cierre_excepcional'},
+      {t:'Agendar para otro momento', cls:'win', primary:true, jumpFlowTo:{flow:'flowAgendar',node:'agendar'}},
+      {t:'Pide más información antes de decidir', next:'masinfo'},
+      {t:'Pregunta cuánto cuesta antes de decidir', next:'preg_precio'}
+    ]
+  },
+  no_cumple_temprano:{
+    tag:'Fin · no cumple el filtro mínimo',
+    end:true,
+    script:'"Entiendo. Nuestro sistema está pensado para restaurantes con un ticket medio algo más alto. Si el negocio evoluciona, encantados de hablar más adelante."',
+    note:'Registrar en la ficha como restaurante no admitido por ticket medio bajo. No se ofrece demo en este caso.'
+  },
+  preg_precio:{
+    tag:'Reencuadre · no adelantar precio',
+    script:'"Prefiero que lo escuche primero funcionando, así el precio tiene sentido con lo que está recibiendo. Se lo detallamos todo en el diagnóstico, que le lleva 20 minutos."',
+    options:[{t:'Acepta agendar el diagnóstico', jumpFlowTo:{flow:'flowAgendar',node:'agendar'}}]
+  },
+  masinfo:{
+    tag:'Refuerzo con autoridad',
+    script:'"Menos del 1% de la facturación del sector va hoy a marketing con inteligencia artificial, casi nadie lo está capturando todavía. El diagnóstico le lleva 20 minutos y verá si encaja con su restaurante."',
+    options:[
+      {t:'Acepta agendar', jumpFlowTo:{flow:'flowAgendar',node:'agendar'}},
+      {t:'Objeción: "ya tenemos suficientes reservas"', cls:'obj', next:'obj_yatengo'},
+      {t:'Objeción: "mándame información por email"', cls:'obj', next:'obj_email'}
+    ]
+  },
+  obj_yatengo:{
+    tag:'Reencuadre',
+    script:'"Me alegra que vaya bien. El sistema encaja igual: cuando hay un pico de servicio, el agente absorbe lo que el equipo no llega a atender. El diagnóstico no le compromete a nada, solo le enseña cómo funciona con sus propios números."',
+    options:[
+      {t:'Acepta agendar tras el reencuadre', jumpFlowTo:{flow:'flowAgendar',node:'agendar'}},
+      {t:'Sigue reticente', next:'masinfo'}
+    ]
+  },
+  obj_email:{
+    tag:'Reencuadre',
+    script:'"Se la envío ahora mismo. Pero el diagnóstico es porque cada restaurante tiene un volumen y una operativa distinta; en 20 minutos ve si el encaje es real, algo que un email no le puede enseñar."',
+    options:[
+      {t:'Acepta agendar tras el reencuadre', jumpFlowTo:{flow:'flowAgendar',node:'agendar'}},
+      {t:'Insiste en solo email', cls:'warn', next:'noresponde'}
+    ]
+  },
+  obj_tiempo:{
+    tag:'Reencuadre · tiempo',
+    script:'"Lo entiendo, por eso el diagnóstico son solo 20 minutos y se lo agendo cuando mejor le venga, a primera hora o a última hora del día."',
+    options:[{t:'Acepta agendar', jumpFlowTo:{flow:'flowAgendar',node:'agendar'}}]
+  },
+  noresponde:{
+    tag:'Fin de llamada · mensaje de seguimiento',
+    end:true,
+    sendable:true,
+    script:'"Seguimos trabajando con restaurantes de la zona, y [Provincia] sigue siendo una prioridad para nosotros. En cuanto le venga bien, retomamos la conversación."',
+    message:'Hola [Contacto], le dejamos este mensaje de seguimiento del equipo de Valero Agency: seguimos activando restaurantes en su zona. En cuanto le venga bien, retomamos la conversación. Un saludo.',
+    note:'Registrar en la ficha como seguimiento pendiente. No se agenda nada en esta llamada. Envía el mensaje por WhatsApp o email con los botones de abajo.'
+  },
+  demo_ahora:{
+    tag:'Demo en la misma llamada ✓',
+    demoTools:true,
+    script:'"Perfecto, no colgamos entonces. Le hago sonar ahora mismo el agente de voz para que lo escuche en directo."',
+    note:'1) Llamar al número de demo del agente o reproducir la grabación guardada · 2) Dejar que el restaurante escuche una conversación real.',
+    options:[{t:'Terminada la demo, preguntar impresión', next:'l1_diag_reaccion'}]
+  },
+  l1_diag_reaccion:{
+    tag:'Diagnóstico tras la demo 1/2',
+    script:'"¿Qué le ha parecido lo que acaba de escuchar?"',
+    options:[
+      {t:'Reacción positiva ("me gusta", "suena bien")', cls:'win', next:'l1_diag_utilidad'},
+      {t:'Reacción dudosa o poco entusiasta', cls:'warn', next:'l1_diag_reaccion_duda'}
+    ]
+  },
+  l1_diag_reaccion_duda:{
+    tag:'Reencuadre · reacción tibia',
+    script:'"Entiendo, a veces cuesta valorarlo a la primera. ¿Qué es lo que le genera más dudas: que suene natural, la integración con su sistema de reservas, o el precio?"',
+    note:'Si la duda es sobre cómo suena, se puede volver a la demo y hacer sonar otra grabación.',
+    options:[
+      {t:'Aclarada la duda, seguimos', next:'l1_diag_utilidad'},
+      {t:'Vuelve a dudar de cómo suena → repetir demo', next:'demo_ahora'}
+    ]
+  },
+  l1_diag_utilidad:{
+    tag:'Diagnóstico tras la demo 2/2',
+    script:'"¿Cree que esto podría ser útil para el restaurante, tal y como lo acaba de escuchar funcionar?"',
+    options:[
+      {t:'Sí, claramente útil', cls:'win', next:'l1_planes'},
+      {t:'Podría ser, pero no está del todo seguro', next:'l1_diag_utilidad_duda'}
+    ]
+  },
+  l1_diag_utilidad_duda:{
+    tag:'Reencuadre antes de presentar los planes',
+    script:'"Le entiendo. Por eso justo tiene sentido empezar con el plan Básico, para probar el sistema sin comprometerse a gran escala."',
+    options:[{t:'Continuar a los planes', next:'l1_planes'}]
+  },
+  l1_planes:{
+    tag:'Presentación de los planes disponibles',
+    script:'"Tenemos dos líneas de producto: Agentes de IA para Reservas, y Marketing y Contenido. Según lo que me cuenta, le recomiendo empezar por uno u otro."',
+    termometro:true,
+    options:[
+      {t:'Elige Agentes IA Básico · 1.000€ + 200€/mes', cls:'win', pack:'Agentes IA Básico (1.000€ ahora, luego 200€/mes)', next:'l1_cierre'},
+      {t:'Elige Agentes IA Avanzado · 1.530€ + 380€/mes', cls:'win', pack:'Agentes IA Avanzado (1.530€ ahora, luego 380€/mes)', next:'l1_cierre'},
+      {t:'Elige Agentes IA Premium/Grupo · 2.100€ + 600€/mes', cls:'win', pack:'Agentes IA Premium/Grupo (2.100€ ahora, luego 600€/mes)', next:'l1_cierre'},
+      {t:'Elige Marketing Básico · 950€/mes', cls:'win', pack:'Marketing Básico (950€/mes)', next:'l1_cierre'},
+      {t:'Elige Marketing Intermedio · 1.300€/mes', cls:'win', pack:'Marketing Intermedio (1.300€/mes)', next:'l1_cierre'},
+      {t:'Objeción: "es caro"', cls:'obj', next:'l1_obj_caro'},
+      {t:'Objeción: "ya tengo CoverManager / TPV"', cls:'obj', next:'l1_obj_integracion'},
+      {t:'Objeción: "no confío en que una IA hable con mis clientes"', cls:'obj', next:'l1_obj_confianza'},
+      {t:'Objeción: "¿cuánto tarda en implementarse?"', cls:'obj', next:'l1_obj_plazos'},
+      {t:'Objeción: "tengo que hablarlo con mi socio"', cls:'obj', next:'l1_obj_socio'},
+      {t:'Pregunta: "¿cuál es la diferencia entre Agentes IA y Marketing?"', next:'l1_diferencia_planes'},
+      {t:'Pregunta por Marketing Premium/Grupo (varios locales)', next:'l1_premium_info'}
+    ]
+  },
+  l1_diferencia_planes:{
+    tag:'Diferencia entre Agentes IA y Marketing',
+    script:'"Agentes IA se ocupa de que ninguna llamada ni WhatsApp se quede sin respuesta y de automatizar reservas. Marketing se ocupa de generar contenido y presencia con el objetivo de llenar mesas, no de conseguir likes. Muchos restaurantes acaban con los dos, pero se puede empezar por el que más urja."',
+    options:[{t:'Volver a los planes', next:'l1_planes'}]
+  },
+  l1_premium_info:{
+    tag:'Planes Premium/Grupo · a medida',
+    script:'"Para varios locales, tanto en Agentes IA como en Marketing, el plan Premium/Grupo se prepara a medida según el número de locales. En Agentes IA el precio de partida es 2.100€ más 600€/mes; en Marketing es desde 1.800€/mes, ajustando el alcance exacto según sus locales."',
+    note:'El enlace de pago de Marketing Premium/Grupo ya está disponible; confirma el número de locales antes de enviarlo, ya que el alcance final varía.',
+    options:[{t:'Volver a los planes disponibles', next:'l1_planes'}]
+  },
+  l1_obj_caro:{
+    tag:'Reencuadre · precio',
+    script:'"Lo entiendo. Piense que una sola mesa de 4 a 60€ por persona cancelada sin aviso son 240€ perdidos en una única reserva. El diagnóstico es precisamente para ver, con sus números reales, si el ahorro compensa la inversión."',
+    options:[{t:'Volver a los planes', next:'l1_planes'}]
+  },
+  l1_obj_integracion:{
+    tag:'Reencuadre · ya tiene sistema de reservas',
+    script:'"Perfecto, entonces ya tiene la base. El agente no sustituye su sistema de reservas, contesta el teléfono y el WhatsApp antes de que la reserva llegue a él, y se integra con CoverManager u otros sistemas habituales."',
+    options:[{t:'Volver a los planes', next:'l1_planes'}]
+  },
+  l1_obj_confianza:{
+    tag:'Reencuadre · confianza en la IA',
+    script:'"Es la objeción más común, y la entiendo. Por eso el diagnóstico gratuito no lleva compromiso: usted mismo escucha cómo suena el agente con sus propios datos antes de decidir nada."',
+    options:[{t:'Volver a los planes', next:'l1_planes'}]
+  },
+  l1_obj_plazos:{
+    tag:'Reencuadre · plazos de implementación',
+    script:'"La implementación real toma entre 1 y 2 semanas, no es instantánea. Eso se explica con detalle en el propio diagnóstico."',
+    options:[{t:'Volver a los planes', next:'l1_planes'}]
+  },
+  l1_obj_socio:{
+    tag:'Reencuadre · decisión compartida',
+    script:'"Claro, es una decisión importante. Le envío un resumen de los planes con lo que acaba de escuchar en la demo, y agendamos una llamada breve con los dos juntos para resolver dudas."',
+    sendable:true,
+    message:'Hola [Contacto], le envío el resumen de los planes con lo que hemos visto en la demo, para que puedan revisarlo con calma. Cuando le venga bien, agendamos una llamada breve con los dos para resolver cualquier duda. Un saludo, equipo Valero Agency.',
+    options:[{t:'Registrar seguimiento pendiente', next:'l1_pendiente'}]
+  },
+  l1_pendiente:{
+    tag:'Fin · seguimiento pendiente',
+    end:true,
+    script:'Registrar en la ficha la fecha de seguimiento con el socio. No forzar el cierre en esta llamada.',
+    note:''
+  },
+  l1_cierre:{
+    tag:'Cierre y confirmación ✓',
+    end:true,
+    success:true,
+    jumpToTab:'cierre',
+    closeConfirm:true,
+    script:'"Perfecto, activamos [Pack]. Le confirmo por email el enlace de pago y las condiciones. ¿A qué correo se lo envío?"',
+    note:'Objetivo cumplido: registrar plan e importe en la Ficha del restaurante. Escribe el correo y envía la confirmación con el botón de abajo.'
+  },
+  cierre_excepcional:{
+    tag:'Cierre excepcional en la misma sesión',
+    script:'Si el restaurante está muy convencido y no quiere esperar al diagnóstico, se puede saltar directamente a la presentación de planes.',
+    options:[{t:'Presentar planes y cerrar', next:'l1_planes'}]
+  },
+};
+
+const flowAgendar = {
+  agendar:{
+    tag:'Cierre de la Llamada 1 ✓',
+    end:true,
+    success:true,
+    schedule:true,
+    script:'"¿Qué día y a qué hora le viene bien para el diagnóstico? ¿Se lo confirmo por email o por WhatsApp?"',
+    note:'Elige día y hora abajo y envía la confirmación por WhatsApp o email.'
+  }
+};
+
+const flow2 = {
+  start:{
+    tag:'Apertura del diagnóstico',
+    script:'"Buenos días [Contacto], soy [Closer], del equipo de Valero Agency, retomamos lo que quedamos: le voy a hacer escuchar en directo el agente de voz para que vea cómo respondería a sus clientes. Antes, le confirmo dos datos rápidos."',
+    options:[{t:'Pasar a cualificación', next:'cualif_gestion'}]
+  },
+  cualif_gestion:{
+    tag:'Cualificación · gestión actual',
+    script:'"¿Seguís gestionando las reservas y el WhatsApp de forma manual, o ya tenéis todo automatizado de una forma que no querríais tocar?"',
+    note:'Ticket medio y número de locales ya se confirmaron en el filtro rápido de la Llamada 1, no repetirlos aquí.',
+    options:[
+      {t:'Siguen gestionando de forma manual', cls:'win', next:'demo'},
+      {t:'Ya tienen todo automatizado y no quieren tocarlo', cls:'warn', next:'nocumple'}
+    ]
+  },
+  nocumple:{
+    tag:'Fin · no admitido',
+    end:true,
+    script:'"Entiendo, si ya tienen un sistema con el que están satisfechos, no tiene sentido forzarlo. Si en algún momento cambia la situación, encantados de hablar."',
+    note:'Registrar en ficha como restaurante no admitido: ya tiene sistema propio y no quiere cambiarlo.'
+  },
+  demo:{
+    tag:'Demo en vivo · agente de voz',
+    demoTools:true,
+    script:'"Le hago escuchar ahora mismo, en directo, cómo suena una conversación real con el agente."',
+    note:'1) Llamar al número de demo del agente o reproducir la grabación guardada en la Ficha del restaurante · 2) Dejar que el restaurante escuche la conversación completa.',
+    options:[{t:'Terminada la demo, preguntar impresión', next:'diag_reaccion'}]
+  },
+  diag_reaccion:{
+    tag:'Diagnóstico tras la demo 1/2',
+    script:'"¿Qué le ha parecido lo que acaba de escuchar?"',
+    options:[
+      {t:'Reacción positiva ("me gusta", "suena bien")', cls:'win', next:'diag_utilidad'},
+      {t:'Reacción dudosa o poco entusiasta', cls:'warn', next:'diag_reaccion_duda'}
+    ]
+  },
+  diag_reaccion_duda:{
+    tag:'Reencuadre · reacción tibia',
+    script:'"Entiendo, a veces cuesta valorarlo a la primera. ¿Qué es lo que le genera más dudas: que suene natural, la integración con su sistema de reservas, o el precio?"',
+    note:'Si la duda es sobre cómo suena, se puede volver a la demo y hacer sonar otra grabación.',
+    options:[
+      {t:'Aclarada la duda, seguimos', next:'diag_utilidad'},
+      {t:'Vuelve a dudar de cómo suena → repetir demo', next:'demo'}
+    ]
+  },
+  diag_utilidad:{
+    tag:'Diagnóstico tras la demo 2/2',
+    script:'"¿Cree que esto podría ser útil para el restaurante, tal y como lo acaba de escuchar funcionar?"',
+    options:[
+      {t:'Sí, claramente útil', cls:'win', next:'packs'},
+      {t:'Podría ser, pero no está del todo seguro', next:'diag_utilidad_duda'}
+    ]
+  },
+  diag_utilidad_duda:{
+    tag:'Reencuadre antes de presentar los planes',
+    script:'"Le entiendo. Por eso justo tiene sentido empezar con el plan Básico, para probar el sistema sin comprometerse a gran escala."',
+    options:[{t:'Continuar a los planes', next:'packs'}]
+  },
+  packs:{
+    tag:'Presentación de los planes disponibles',
+    script:'"Tenemos dos líneas de producto: Agentes de IA para Reservas, y Marketing y Contenido. Según lo que me cuenta, le recomiendo empezar por uno u otro."',
+    termometro:true,
+    options:[
+      {t:'Elige Agentes IA Básico · 1.000€ + 200€/mes', cls:'win', pack:'Agentes IA Básico (1.000€ ahora, luego 200€/mes)', next:'cierre'},
+      {t:'Elige Agentes IA Avanzado · 1.530€ + 380€/mes', cls:'win', pack:'Agentes IA Avanzado (1.530€ ahora, luego 380€/mes)', next:'cierre'},
+      {t:'Elige Agentes IA Premium/Grupo · 2.100€ + 600€/mes', cls:'win', pack:'Agentes IA Premium/Grupo (2.100€ ahora, luego 600€/mes)', next:'cierre'},
+      {t:'Elige Marketing Básico · 950€/mes', cls:'win', pack:'Marketing Básico (950€/mes)', next:'cierre'},
+      {t:'Elige Marketing Intermedio · 1.300€/mes', cls:'win', pack:'Marketing Intermedio (1.300€/mes)', next:'cierre'},
+      {t:'Objeción: "es caro"', cls:'obj', next:'obj_caro'},
+      {t:'Objeción: "ya tengo CoverManager / TPV"', cls:'obj', next:'obj_integracion'},
+      {t:'Objeción: "no confío en que una IA hable con mis clientes"', cls:'obj', next:'obj_confianza'},
+      {t:'Objeción: "¿cuánto tarda en implementarse?"', cls:'obj', next:'obj_plazos'},
+      {t:'Objeción: "tengo que hablarlo con mi socio"', cls:'obj', next:'obj_socio'},
+      {t:'Pregunta: "¿cuál es la diferencia entre Agentes IA y Marketing?"', next:'diferencia_planes'},
+      {t:'Pregunta por Marketing Premium/Grupo (varios locales)', next:'premium_info'}
+    ]
+  },
+  diferencia_planes:{
+    tag:'Diferencia entre Agentes IA y Marketing',
+    script:'"Agentes IA se ocupa de que ninguna llamada ni WhatsApp se quede sin respuesta y de automatizar reservas. Marketing se ocupa de generar contenido y presencia con el objetivo de llenar mesas, no de conseguir likes. Muchos restaurantes acaban con los dos, pero se puede empezar por el que más urja."',
+    options:[{t:'Volver a los planes', next:'packs'}]
+  },
+  premium_info:{
+    tag:'Planes Premium/Grupo · a medida',
+    script:'"Para varios locales, tanto en Agentes IA como en Marketing, el plan Premium/Grupo se prepara a medida según el número de locales. En Agentes IA el precio de partida es 2.100€ más 600€/mes; en Marketing es desde 1.800€/mes, ajustando el alcance exacto según sus locales."',
+    note:'El enlace de pago de Marketing Premium/Grupo ya está disponible; confirma el número de locales antes de enviarlo, ya que el alcance final varía.',
+    options:[{t:'Volver a los planes disponibles', next:'packs'}]
+  },
+  obj_caro:{
+    tag:'Reencuadre · precio',
+    script:'"Lo entiendo. Piense que una sola mesa de 4 a 60€ por persona cancelada sin aviso son 240€ perdidos en una única reserva. El diagnóstico es precisamente para ver, con sus números reales, si el ahorro compensa la inversión."',
+    options:[{t:'Volver a los planes', next:'packs'}]
+  },
+  obj_integracion:{
+    tag:'Reencuadre · ya tiene sistema de reservas',
+    script:'"Perfecto, entonces ya tiene la base. El agente no sustituye su sistema de reservas, contesta el teléfono y el WhatsApp antes de que la reserva llegue a él, y se integra con CoverManager u otros sistemas habituales."',
+    options:[{t:'Volver a los planes', next:'packs'}]
+  },
+  obj_confianza:{
+    tag:'Reencuadre · confianza en la IA',
+    script:'"Es la objeción más común, y la entiendo. Por eso el diagnóstico gratuito no lleva compromiso: usted mismo escucha cómo suena el agente con sus propios datos antes de decidir nada."',
+    options:[{t:'Volver a los planes', next:'packs'}]
+  },
+  obj_plazos:{
+    tag:'Reencuadre · plazos de implementación',
+    script:'"La implementación real toma entre 1 y 2 semanas, no es instantánea. Eso se explica con detalle en el propio diagnóstico."',
+    options:[{t:'Volver a los planes', next:'packs'}]
+  },
+  obj_socio:{
+    tag:'Reencuadre · decisión compartida',
+    script:'"Claro, es una decisión importante. Le envío un resumen de los planes con lo que acaba de escuchar en la demo, y agendamos una llamada breve con los dos juntos para resolver dudas."',
+    sendable:true,
+    message:'Hola [Contacto], le envío el resumen de los planes con lo que hemos visto en la demo, para que puedan revisarlo con calma. Cuando le venga bien, agendamos una llamada breve con los dos para resolver cualquier duda. Un saludo, equipo Valero Agency.',
+    options:[{t:'Registrar seguimiento pendiente', next:'pendiente'}]
+  },
+  pendiente:{
+    tag:'Fin · seguimiento pendiente',
+    end:true,
+    script:'Registrar en la ficha la fecha de seguimiento con el socio. No forzar el cierre en esta llamada.',
+    note:''
+  },
+  cierre:{
+    tag:'Cierre y confirmación ✓',
+    end:true,
+    success:true,
+    jumpToTab:'cierre',
+    closeConfirm:true,
+    script:'"Perfecto, activamos [Pack]. Le confirmo por email el enlace de pago y las condiciones. ¿A qué correo se lo envío?"',
+    note:'Objetivo cumplido: registrar plan e importe en la Ficha del restaurante. Escribe el correo y envía la confirmación con el botón de abajo.'
+  }
+};
+
+const flowHistory = {flow1:['start'], flow2:['start'], flowAgendar:['agendar']};
+
+function renderFlow(flowName, nodeId, pushHistory){
+  if(pushHistory !== false){
+    flowHistory[flowName].push(nodeId);
+  }
+  const flows = {flow1:flow1, flow2:flow2, flowAgendar:flowAgendar};
+  const flow = flows[flowName];
+  const node = flow[nodeId];
+  const container = document.getElementById(flowName+'-container');
+  const isObjOrigin = nodeId.indexOf('obj_')===0;
+  const objKey = flowName==='flow1' ? 'objeciones1' : (flowName==='flow2' ? 'objeciones2' : null);
+  if(objKey && isObjOrigin && ficha[objKey].indexOf(nodeId)===-1){
+    ficha[objKey].push(nodeId);
+    localStorage.setItem('valero_'+objKey, JSON.stringify(ficha[objKey]));
+  }
+  if(node.end){
+    const paradaKey = flowName==='flow1' ? 'bloqueParada1' : (flowName==='flow2' ? 'bloqueParada2' : 'bloqueParadaAgendar');
+    const val = node.tag + (node.success ? ' (éxito)' : ' (sin cierre)');
+    ficha[paradaKey] = val;
+    localStorage.setItem('valero_'+paradaKey, val);
+  }
+  let html = '<div class="flow-card'+(node.end?' flow-end':'')+'">';
+  if(isObjOrigin){ html += '<div class="overlay-label">⚠ Objeción del restaurante</div>'; }
+  html += '<div class="flow-tag">'+node.tag+'</div>';
+  html += '<div class="flow-script">'+fill(node.script)+'</div>';
+  if(node.note){ html += '<div class="flow-note">'+node.note+'</div>'; }
+  if(node.options){
+    const primaryOpts = node.options.filter(o=>o.primary);
+    const secondaryOpts = node.options.filter(o=>!o.primary);
+    const optAction = (o) => o.jumpFlowTo
+      ? "jumpFlow('"+o.jumpFlowTo.flow+"','"+o.jumpFlowTo.node+"')"
+      : (o.pack
+        ? "choosePack('"+flowName+"','"+o.pack.replace(/'/g,"\\'")+"','"+o.next+"')"
+        : "renderFlow('"+flowName+"','"+o.next+"')");
+    if(primaryOpts.length){
+      html += '<div class="flow-branch-label">Dos caminos posibles desde aquí:</div>';
+      html += '<div class="flow-branch-row">';
+      primaryOpts.forEach(o=>{
+        html += '<button class="flow-branch '+(o.cls||'')+'" onclick="'+optAction(o)+'"><strong>'+o.t+'</strong></button>';
+      });
+      html += '</div>';
+      if(secondaryOpts.length){ html += '<div class="flow-note" style="margin-top:14px;">O si aún no está decidido:</div>'; }
+    }
+    if(secondaryOpts.length){
+      html += '<div class="flow-options">';
+      secondaryOpts.forEach(o=>{
+        html += '<button class="flow-opt '+(o.cls||'')+'" onclick="'+optAction(o)+'">'+o.t+'</button>';
+      });
+      html += '</div>';
+    }
+  }
+  if(node.termometro){
+    html += renderTermometro();
+  }
+  if(node.demoTools){
+    html += '<div class="send-row" style="margin-top:14px;">';
+    html += '<button class="btn" style="background:#1a73e8; color:#fff;" onclick="return openMeet();">📞 Abrir demo del agente</button>';
+    html += '</div>';
+    html += '<div class="send-msg" id="msg-meetsend">'+meetSendMsg()+'</div>';
+    html += '<div class="send-row">';
+    html += '<button class="btn wa" onclick="return sendMeetLink(\'wa\');">📱 Enviar recurso de demo por WhatsApp</button>';
+    html += '<button class="btn mail" onclick="return sendMeetLink(\'mail\');">✉️ Enviar recurso de demo por email</button>';
+    html += '</div>';
+  }
+  if(node.schedule){
+    html += renderScheduleWidget();
+  }
+  if(node.closeConfirm){
+    html += '<div class="schedule-box">';
+    html += '<label>Correo electrónico del restaurante</label>';
+    html += '<input type="email" id="cierre-email-input" value="'+(ficha.email||'')+'" placeholder="correo@restaurante.com" oninput="setCierreEmail(this.value)">';
+    html += '<div class="send-msg" id="msg-cierreconfirm">'+cierreConfirmMsg()+'</div>';
+    html += '<div class="send-row">';
+    html += '<button class="btn wa" onclick="return sendCierreConfirm(\'wa\');">📱 Enviar confirmación por WhatsApp</button>';
+    html += '<button class="btn mail" onclick="return sendCierreConfirm(\'mail\');">✉️ Enviar confirmación por email</button>';
+    html += '</div>';
+    html += '</div>';
+  }
+  if(node.sendable){
+    const msg = fill(node.message || node.script.replace(/^"|"$/g,''));
+    html += '<div class="schedule-box">';
+    html += '<label>Correo electrónico del restaurante</label>';
+    html += '<input type="email" value="'+(ficha.email||'')+'" placeholder="correo@restaurante.com" oninput="setCierreEmail(this.value)">';
+    html += '<div class="send-msg">'+msg+'</div>';
+    html += '<div class="send-row">';
+    html += '<button class="btn wa" onclick="return openWA(\''+msg.replace(/'/g,"\\'")+'\');">📱 Enviar por WhatsApp</button>';
+    html += '<button class="btn mail" onclick="return openMail(\'Seguimiento Valero Agency\', \''+msg.replace(/'/g,"\\'")+'\');">✉️ Enviar por email</button>';
+    html += '</div>';
+    html += '</div>';
+  }
+  if(node.jumpToTab){
+    html += '<div class="send-row" style="margin-top:16px;">';
+    html += '<button class="btn win-jump" style="background:var(--teal); color:#04140b; border:none; padding:12px 20px; border-radius:7px; font-weight:600; cursor:pointer;" onclick="goTab(\'exportar\'); renderExport();">→ Exportar ficha</button>';
+    html += '</div>';
+  }
+  html += '<div class="flow-navrow">';
+  html += '<button class="flow-back" onclick="goBack(\''+flowName+'\')">← Atrás</button>';
+  html += '<button class="flow-restart" onclick="startFlow(\''+flowName+'\')">↺ Reiniciar</button>';
+  html += '</div>';
+  html += '</div>';
+  container.innerHTML = html;
+  if(node.schedule){ refreshScheduleMsgs(); }
+}
+function goBack(flowName){
+  const hist = flowHistory[flowName];
+  if(hist.length > 1){ hist.pop(); }
+  const prev = hist[hist.length-1];
+  renderFlow(flowName, prev, false);
+}
+const FLOW_TAB = {flow1:'llamada1', flow2:'llamada2', flowAgendar:'agendar-demo'};
+function startFlow(flowName){
+  const startNode = flowName==='flowAgendar' ? 'agendar' : 'start';
+  flowHistory[flowName] = [startNode];
+  renderFlow(flowName, startNode, false);
+}
+function jumpFlow(flowName, nodeId){
+  goTab(FLOW_TAB[flowName] || flowName.replace('flow','llamada'));
+  flowHistory[flowName] = [nodeId];
+  renderFlow(flowName, nodeId, false);
+}
+function choosePack(flowName, packLabel, nextNode){
+  ficha.pack = packLabel;
+  localStorage.setItem('valero_f_pack', packLabel);
+  document.querySelectorAll('[data-f="pack"]').forEach(s=>s.value=packLabel);
+  renderFlow(flowName, nextNode);
+}
+
+const PACK_DESCRIPTIONS = {
+  'Agentes IA Básico (1.000€ ahora, luego 200€/mes)': 'Agentes IA · Plan Básico: agente de chat y WhatsApp, base de preguntas frecuentes, gestión simple de reservas (1.000€ ahora, luego 200€/mes)',
+  'Agentes IA Avanzado (1.530€ ahora, luego 380€/mes)': 'Agentes IA · Plan Avanzado: voz + chat + WhatsApp, integración con sistema de reservas, recordatorios y reducción de no-shows (1.530€ ahora, luego 380€/mes)',
+  'Agentes IA Premium/Grupo (2.100€ ahora, luego 600€/mes)': 'Agentes IA · Plan Premium/Grupo: multi-local, un agente por punto de venta, panel de seguimiento (2.100€ ahora, luego 600€/mes)',
+  'Marketing Básico (950€/mes)': 'Marketing · Plan Básico: estrategia y calendario de contenidos, gestión de Instagram y TikTok, copywriting y community management (950€/mes)',
+  'Marketing Intermedio (1.300€/mes)': 'Marketing · Plan Intermedio: todo lo del Básico más producción fotográfica y audiovisual mensual (1.300€/mes)',
+  'Marketing Premium/Grupo (desde 1.800€/mes, a medida)': 'Marketing · Plan Premium/Grupo: varios locales, a medida (desde 1.800€/mes, precio final a confirmar)'
+};
+const PACK_LINKS = {
+  'Agentes IA Básico (1.000€ ahora, luego 200€/mes)': 'https://buy.stripe.com/14AbJ0ceT98j9XO57gbAs0a',
+  'Agentes IA Avanzado (1.530€ ahora, luego 380€/mes)': 'https://buy.stripe.com/14AbJ00wb84f5HyeHQbAs0b',
+  'Agentes IA Premium/Grupo (2.100€ ahora, luego 600€/mes)': 'https://buy.stripe.com/5kQ8wO92H2JV9XOdDMbAs0c',
+  'Marketing Básico (950€/mes)': 'https://buy.stripe.com/8x2dR8ceT5W7fi8fLUbAs07',
+  'Marketing Intermedio (1.300€/mes)': 'https://buy.stripe.com/6oUfZggv9dozfi8gPYbAs08',
+  'Marketing Premium/Grupo (desde 1.800€/mes, a medida)': 'https://buy.stripe.com/3cI14m2Ej5W73zq43cbAs09'
+};
+function cierreConfirmMsg(){
+  const desc = PACK_DESCRIPTIONS[ficha.pack] || (ficha.pack || '[plan elegido]');
+  const link = PACK_LINKS[ficha.pack];
+  const linkTxt = link ? ('\n\nEnlace de pago: '+link) : '\n\nEste plan se cierra a medida: en breve le confirmamos el enlace de pago exacto.';
+  return fill('Hola [Contacto],\n\nSegún nuestra conversación de hoy, le confirmamos que ha elegido el siguiente plan:\n\n'+desc+'.'+linkTxt+'\n\n¿Podría confirmarnos la recepción de este mensaje y darnos su conformidad para proceder? Quedamos a su disposición para cualquier duda.\n\nUn saludo,\nEquipo Valero Agency');
+}
+function setCierreEmail(val){
+  ficha.email = val;
+  localStorage.setItem('valero_f_email', val);
+  document.querySelectorAll('[data-f="email"]').forEach(i=>i.value=val);
+}
+function sendCierreConfirm(via){
+  if(!ficha.email){ alert('Escribe primero el correo del restaurante.'); return false; }
+  const msg = cierreConfirmMsg();
+  if(via==='wa'){ return openWA(msg); }
+  return openMail('Confirmación de plan · Valero Agency', msg);
+}
+startFlow('flow1');
+startFlow('flow2');
+startFlow('flowAgendar');
+
+function renderTermometro(){
+  return `
+    <div class="termometro-box">
+      <strong style="color:var(--gold);">🌡️ Termómetro de cierre</strong>
+      <div class="flow-note" style="margin:6px 0 0;">Anota las dos cifras reales que ha dado el restaurante. Quedan en la ficha como referencia objetiva de qué tan cerca está del cierre, y sirven de base para el futuro informe de análisis de rendimiento.</div>
+      <div class="trow">
+        <label>Importancia que le da a resolver las reservas perdidas (1-10)
+          <input type="number" min="1" max="10" value="${ficha.importancia||''}" oninput="updateTermometro('importancia', this.value)">
+        </label>
+        <label>Confianza en que el sistema funcione (1-10)
+          <input type="number" min="1" max="10" value="${ficha.confianza||''}" oninput="updateTermometro('confianza', this.value)">
+        </label>
+      </div>
+    </div>
+  `;
+}
+function updateTermometro(field, val){
+  ficha[field] = val;
+  localStorage.setItem('valero_f_'+field, val);
+}
+
+function renderScheduleWidget(){
+  return `
+    <div class="schedule-box">
+      <div class="schedule-row">
+        <div><label>Día del diagnóstico</label><input type="date" id="sch-fecha" onchange="ficha.fecha=this.value; refreshScheduleMsgs();"></div>
+        <div><label>Hora del diagnóstico</label><input type="time" id="sch-hora" onchange="ficha.hora=this.value; refreshScheduleMsgs();"></div>
+      </div>
+      <div class="send-msg" id="msg-confirmacion"></div>
+      <div class="send-row">
+        <button class="btn wa" onclick="return openWA(document.getElementById('msg-confirmacion').textContent);">📱 Enviar confirmación por WhatsApp</button>
+        <button class="btn mail" onclick="return openMail('Confirmación diagnóstico Valero Agency', document.getElementById('msg-confirmacion').textContent);">✉️ Enviar confirmación por email</button>
+      </div>
+
+      <div class="callout" style="margin-top:18px;"><strong>Recordatorio 24h antes</strong></div>
+      <div class="send-msg" id="msg-recordatorio24"></div>
+      <div class="send-row">
+        <button class="btn wa" onclick="return openWA(document.getElementById('msg-recordatorio24').textContent);">📱 Enviar recordatorio 24h</button>
+        <button class="btn mail" onclick="return openMail('Recordatorio diagnóstico Valero Agency', document.getElementById('msg-recordatorio24').textContent);">✉️ Enviar recordatorio 24h</button>
+      </div>
+
+      <div class="callout" style="margin-top:18px;"><strong>Recordatorio mismo día</strong></div>
+      <div class="send-msg" id="msg-mismodia"></div>
+      <div class="send-row">
+        <button class="btn wa" onclick="return openWA(document.getElementById('msg-mismodia').textContent);">📱 Enviar recordatorio del día</button>
+        <button class="btn mail" onclick="return openMail('Hoy es el diagnóstico Valero Agency', document.getElementById('msg-mismodia').textContent);">✉️ Enviar recordatorio del día</button>
+      </div>
+      <button class="btn ghost" style="margin-top:16px;" onclick="goTab('llamada2')">📞 Pasar directo a la Llamada 2 · Diagnóstico y cierre</button>
+    </div>
+  `;
+}
+function refreshScheduleMsgs(){
+  const box1 = document.getElementById('msg-confirmacion');
+  if(!box1) return;
+  const f = formatFecha(ficha.fecha) || '[fecha]';
+  const h = ficha.hora || '[hora]';
+  box1.textContent = fill('Hola [Contacto], le confirmamos el diagnóstico con Valero Agency para el día '+f+' a las '+h+'. Nos vemos entonces. Un saludo, equipo Valero Agency.');
+  document.getElementById('msg-recordatorio24').textContent = fill('Hola [Contacto], le recordamos que mañana '+f+' a las '+h+' tenemos el diagnóstico agendado. Cualquier cambio, avíseme. Un saludo, equipo Valero Agency.');
+  document.getElementById('msg-mismodia').textContent = fill('Hola [Contacto], hoy a las '+h+' tenemos el diagnóstico. Nos vemos en un rato. Un saludo, equipo Valero Agency.');
+}
+
+function getFichaLines(){
+  return [
+    '=== FICHA DEL RESTAURANTE ===',
+    'Setter-closer: '+(ficha.closer||'-'),
+    'Contacto: '+(ficha.contacto||'-'),
+    'Restaurante: '+(ficha.despacho||'-'),
+    'Provincia/zona: '+(ficha.provincia||'-'),
+    'Ciudad: '+(ficha.ciudad||'-'),
+    'Nº de locales: '+(ficha.locales||'-'),
+    'Ticket medio: '+(ficha.ticket||'-'),
+    'Teléfono fijo: '+(ficha.telefono_fijo||'-'),
+    'Teléfono móvil: '+(ficha.telefono_movil||'-'),
+    'Email: '+(ficha.email||'-'),
+    'Plan: '+(ficha.pack||'-'),
+    'Recurso de demo: '+(ficha.crmlink||'-'),
+    'Fecha diagnóstico: '+(ficha.fecha||'-')+' · Hora: '+(ficha.hora||'-'),
+    'Termómetro · Importancia (1-10): '+(ficha.importancia||'-'),
+    'Termómetro · Confianza (1-10): '+(ficha.confianza||'-'),
+    'Objeciones en Llamada 1: '+(ficha.objeciones1.length ? ficha.objeciones1.join(', ') : '-'),
+    'Objeciones en Llamada 2: '+(ficha.objeciones2.length ? ficha.objeciones2.join(', ') : '-'),
+    'Bloque donde se detuvo Llamada 1: '+(ficha.bloqueParada1||'-'),
+    'Bloque donde se detuvo Llamada 2: '+(ficha.bloqueParada2||'-'),
+    'Notas de cierre (Llamada 2): '+(ficha.notas||'-'),
+    '',
+    'Generado desde la Guía de Ventas Valero Agency · Closer Search'
+  ];
+}
+function renderExport(){
+  const lines = getFichaLines();
+  document.getElementById('exportBox').textContent = lines.join('\n');
+}
+function copyExport(){
+  const txt = document.getElementById('exportBox').textContent;
+  navigator.clipboard.writeText(txt).then(()=>{
+    const box = document.getElementById('exportBox');
+    box.textContent = '✓ Copiado al portapapeles\n\n'+box.textContent;
+  });
+}
+function exportPDF(){
+  renderExport();
+  if(!window.jspdf){ alert('No se pudo cargar la librería de PDF. Comprueba tu conexión a internet e inténtalo de nuevo.'); return; }
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({unit:'pt', format:'a4'});
+  const marginX = 48;
+  let y = 56;
+  doc.setFont('helvetica','bold');
+  doc.setFontSize(16);
+  doc.setTextColor(20,20,20);
+  doc.text('CLOSER SEARCH', marginX, y);
+  doc.setFontSize(10);
+  doc.setFont('helvetica','normal');
+  doc.setTextColor(120,95,30);
+  y += 16;
+  doc.text('Ficha del restaurante · Guía de Ventas Valero Agency', marginX, y);
+  y += 8;
+  doc.setDrawColor(180,150,60);
+  doc.line(marginX, y, 547, y);
+  y += 26;
+
+  doc.setTextColor(30,30,30);
+  const lines = getFichaLines().filter(l => l && !l.startsWith('==='));
+  lines.forEach(line=>{
+    if(!line){ y += 8; return; }
+    const parts = line.split(': ');
+    if(parts.length >= 2 && parts[0].length < 40){
+      doc.setFont('helvetica','bold');
+      doc.setFontSize(10);
+      const label = parts[0]+': ';
+      doc.text(label, marginX, y);
+      const labelWidth = doc.getTextWidth(label);
+      doc.setFont('helvetica','normal');
+      const value = parts.slice(1).join(': ');
+      const wrapped = doc.splitTextToSize(value, 500 - labelWidth);
+      doc.text(wrapped, marginX + labelWidth, y);
+      y += 16 * wrapped.length;
+    } else {
+      doc.setFont('helvetica','italic');
+      doc.setFontSize(9);
+      doc.setTextColor(140,140,140);
+      doc.text(line, marginX, y);
+      doc.setTextColor(30,30,30);
+      y += 14;
+    }
+    if(y > 780){ doc.addPage(); y = 56; }
+  });
+
+  const fileName = 'ficha-'+(ficha.despacho ? ficha.despacho.replace(/\s+/g,'_') : 'restaurante')+'.pdf';
+  doc.save(fileName);
+}
+</script>
+</body>
+</html>
